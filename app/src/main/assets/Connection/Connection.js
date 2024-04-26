@@ -1,7 +1,10 @@
+import { HOMEPAGE } from "../Project/HomePage/HomePage.js"
+import { LOGINPAGE } from "../Project/LoginPage/LoginPage.js"
+
 const CONNECTION=()=>{
 
-    alert('Working')
-
+    LOGINPAGE();
+    
 }
 
 export{CONNECTION}

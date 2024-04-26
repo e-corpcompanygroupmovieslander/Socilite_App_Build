@@ -1,0 +1,1 @@
+export const ICONPATH='../Library/Icons/';
