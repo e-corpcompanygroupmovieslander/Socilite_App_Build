@@ -8,16 +8,15 @@ const APPSTART=()=>{
 
                 WIDGET(`
 
-                <img class='AppIcon' src='../Library/Images/app_icon.png'/>
+                    <img class='AppIcon' src='../Library/Images/app_icon.png'/>
 
-                <img id='loadingOnline' class='LoadingIcon' src='${LOADERICON}'/>
+                    <img id='loadingOnline' class='LoadingIcon' src='${LOADERICON}'/>
 
-                <p>Please Wait</p>
+                    <p>Please Wait</p>
 
-            `)
+                `);
 
-            MODULE("../Connection/Connection.js", "CONNECTION", (CONNECTION) => {CONNECTION();});
-
+                MODULE("../Connection/Connection.js", "CONNECTION", (CONNECTION) => {CONNECTION();});
 
             }),
   
