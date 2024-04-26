@@ -1,4 +1,4 @@
-APPMODE('','','#121212')
+APPMODE('#121212','','#121212')
 
 const APPSTART=()=>{
 
