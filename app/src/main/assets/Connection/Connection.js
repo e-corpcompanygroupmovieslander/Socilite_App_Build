@@ -1,1 +1,7 @@
-//CONNECTIONS FOR YOUR WEB TO NATIVE PROJECTS
+const CONNECTION=()=>{
+
+    alert('Working')
+
+}
+
+export{CONNECTION}

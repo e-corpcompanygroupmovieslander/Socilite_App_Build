@@ -20,3 +20,4 @@ a{position:relative;text-align:center;font-size:16px;margin-top:1rem;margin-bott
 textarea{position:relative;width:95%;height:200px;min-height:16px;max-width:95%;left:2%;margin-top:1rem;margin-bottom:1rem;background:#fff0;border:1px solid #cdcdcd50;border-radius:5px;color:#dcdcdc}textarea::placeholder{color:#dcdcdc}
 video{position:relative;width:95%;height:50%;min-height:16px;max-width:95%;left:2%;margin-top:1rem;margin-bottom:1rem;background:#00000080;border:none;border-radius:5px}
 audio{position:relative;width:95%;left:2%;margin-top:1rem;margin-bottom:1rem;background:#fff0;border:1px solid #cdcdcd50}audio::-webkit-media-controls-enclosure{background:#cdcdcd50;border-radius:0;border:none}
+
