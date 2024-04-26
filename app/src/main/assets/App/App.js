@@ -16,7 +16,7 @@ const APPSTART=()=>{
 
                 `);
 
-                MODULE("../Connection/Connection.js", "CONNECTION", (CONNECTION) => {CONNECTION();});
+                MODULE("../../Connection/Connection.js", "CONNECTION", (CONNECTION) => {CONNECTION();});
 
             }),
   
