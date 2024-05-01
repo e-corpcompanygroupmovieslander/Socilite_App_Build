@@ -1,4 +1,5 @@
 import { LOGINPAGE } from "../LoginPage/LoginPage.js";
+import { CREATEUSER } from "./CreateUser.js";
 
 export const CREATEACCOUNTPAGE=()=>{
 
@@ -14,7 +15,7 @@ export const CREATEACCOUNTPAGE=()=>{
 
         <input type='password' placeholder='Enter User Password' />
 
-        <input type='email' placeholder='Enter Date OF Birth' />
+        <input type='text' placeholder='Enter Date OF Birth' />
 
         <input type='text' placeholder='Enter User Location' />
 
@@ -27,6 +28,8 @@ export const CREATEACCOUNTPAGE=()=>{
     `);
 
     CLICKED('.blue',()=>{LOGINPAGE()});
+
+    CLICKED('.forestgreen',()=>{CREATEUSER()});
 
    
 }

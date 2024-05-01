@@ -6,7 +6,7 @@ const CONNECTION=()=>{
 
     AUTOPOSTS();
 
-    CONDITION(!localStorage.getItem('User'),
+    CONDITION(localStorage.getItem('User'),
     ()=>HOMEPAGE(),
     ()=>LOGINPAGE()
     )

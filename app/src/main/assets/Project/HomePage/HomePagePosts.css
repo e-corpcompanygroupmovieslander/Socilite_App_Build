@@ -38,6 +38,14 @@
     margin-left: 0.5rem;
 }
 
+#Follow{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 30%;
+    height: 30px;
+    margin-right: 1rem;
+}
+
 .PostersName{
     width: 100%;
     left: -2%;

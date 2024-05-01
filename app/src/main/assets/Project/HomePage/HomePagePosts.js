@@ -16,6 +16,7 @@ export const HOMEPAGEPOSTS=()=>{
 
                         const today = new Date();
                         const options = { weekday: 'long' };
+                        // <h1 class='Time'>${today.toLocaleDateString('en-US', options)}</h1>
                         DISPLAY(POSTHOLDER,`
 
                         <div class='OptionsHeader'>
@@ -24,7 +25,7 @@ export const HOMEPAGEPOSTS=()=>{
 
                             <h1 class='PostersName'>${element.MovieName}</h1>
 
-                            <h1 class='Time'>${today.toLocaleDateString('en-US', options)}</h1>
+                           <button id='Follow' class='forestgreen'>Follow</button>
 
                         </div>
                         
