@@ -1,0 +1,62 @@
+.UserTelephone{
+    width: 70%;
+    left: 26%;
+}
+
+.CodeDisplay{
+    position: absolute;
+    font-size: 18px;
+    margin: 4% 8%;
+    text-align: left;
+}
+
+.UserDateDiv{
+    position: fixed;
+    background: #121212;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    display: none;
+    overflow: hidden;
+}
+
+.UserCountryDiv{
+    position: fixed;
+    background: #121212;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    display: none;
+    overflow: hidden;
+}
+
+.DisplayCountries{
+    top: 80px;
+    background: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.Button{
+    display:inline-flex;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.CountryName{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    text-align: left;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+.CountryCode{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    text-align: right;
+    margin-right: 1rem;
+    font-size: 20px; 
+}
