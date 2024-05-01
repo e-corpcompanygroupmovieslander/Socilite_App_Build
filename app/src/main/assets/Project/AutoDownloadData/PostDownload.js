@@ -1,8 +1,8 @@
-import { ANIMATIONAPI } from "../../Module/Module.js"
+import { ANIMATIONAPI, GETPOSTSAPI } from "../../Module/Module.js"
 
 export const AUTOPOSTS=()=>{
 
-    GETPACKAGE(ANIMATIONAPI,'cors',(data)=>{
+    GETPACKAGE(GETPOSTSAPI,'cors',(data)=>{
 
         STORE('local','Posts',JSON.stringify(data))
 

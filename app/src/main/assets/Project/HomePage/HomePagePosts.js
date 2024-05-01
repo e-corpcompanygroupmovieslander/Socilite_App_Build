@@ -1,6 +1,12 @@
 import { ICONPATH, MOVIESPATH } from "../../Module/Module.js";
+import { AUTOUSERDATA } from "../AutoDownloadData/AutoUserData.js";
+import { AUTOPOSTS } from "../AutoDownloadData/PostDownload.js";
 
 export const HOMEPAGEPOSTS=()=>{
+
+    AUTOUSERDATA();
+
+    AUTOPOSTS();
 
     DECLARATION('#HomeDiv',(ELEMENT)=>{
 
@@ -11,6 +17,8 @@ export const HOMEPAGEPOSTS=()=>{
             SHUFFLE(data,(data)=>{
         
                 REDUX(data,(element)=>{
+
+                    console.log(element)
 
                     CREATEELEMENT('div','PostHolder',(POSTHOLDER)=>{
 
@@ -23,7 +31,7 @@ export const HOMEPAGEPOSTS=()=>{
 
                             <img class='UserImage' src='${ICONPATH}user.png'/>
 
-                            <h1 class='PostersName'>${element.MovieName}</h1>
+                            <h1 class='PostersName'>${element.PostersName}</h1>
 
                            <button id='Follow' class='forestgreen'>Follow</button>
 

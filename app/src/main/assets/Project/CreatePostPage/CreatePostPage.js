@@ -1,3 +1,4 @@
+import { CREATEPOSTAPI } from "../../Module/Module.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 
 export const CREATEPOSTPAGE=()=>{
@@ -10,11 +11,11 @@ export const CREATEPOSTPAGE=()=>{
     `
         <p class='CreatePostSEction'>Post Title</p>
 
-        <input type='' maxlength='50' />
+        <input class='Title' type='' maxlength='50' />
 
         <p class='CreatePostSEction'>Description</p>
 
-        <textarea></textarea>
+        <textarea class='Description'></textarea>
 
         <p class='CreatePostSEction'>Choose Image</p>
 
@@ -27,5 +28,39 @@ export const CREATEPOSTPAGE=()=>{
     `,''
 
     );
+
+    CLICKED('.forestgreen',()=>{
+
+        const POSTTITLE=document.querySelector('.Title');
+        const Description=document.querySelector('.Description');
+
+        DEJSON('local','UserData',(data)=>{
+
+            const BUTTON=document.querySelector('.forestgreen');
+
+            LOADER(BUTTON);
+
+            const USERDATA={
+                "PostersName":data.UserName,
+                "PostersEmail":data.UserEmail,
+                "Poster":data.UserID,
+                "PostersImage":data.UserPhoto,
+                "PostTime":new Date(),
+                "PostTitle":POSTTITLE.value,
+                "Description":Description.value,
+                "PostsLikes":"",
+                "UserID":data.UserID+Date.now(),
+                "PostsLocation":data.UserLocation,
+                "PeopleLiked":"",
+                "PostComments":"",
+            }
+
+            POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(data)=>{
+                HOMEPAGE();
+            })
+
+        })
+
+    })
 
 }
