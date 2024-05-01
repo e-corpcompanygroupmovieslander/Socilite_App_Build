@@ -4,3 +4,4 @@ export const MOVIESPATH=`https://e-corpcompanygroupmovieslander.github.io/MovieL
 export const CREATEUSERAPI='https://script.google.com/macros/s/AKfycbzvWYGRGF-MGrORFZeKs2kW8WP1dxM9dDWKAU-8eDzVqsNS4wAnXta-37gWSz5IrmhQlg/exec';
 export const UPDATEUSERAPI='https://script.google.com/macros/s/AKfycbwUj242a6U3AHWvWKRkaf2cpyBFSEnFBxCZ3ysC3CSMHOYLhYuJTgDH7-pXbFUyEpjkbw/exec';
 export const GETUSERAPI='https://script.google.com/macros/s/AKfycbzlbF5Rn4IAvQYOMrbS1Y8htfh79ZIFyFGL-XEHMNSVIbEAmLdKJbBUDaTRgp8AGz5ELw/exec';
+export const EMAILSENDERAPI='https://script.google.com/macros/s/AKfycbxL-n5l4qm6D1Z3LhiLKCCm7ltHH1Jck45KeTRXci_H9HUn5Jc8oo4o_XdtHfLjQawPkg/exec';

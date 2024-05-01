@@ -11,11 +11,11 @@ export const CREATEACCOUNTPAGE=()=>{
 
         <h2>Sign Up</h2>
 
-        <input type='text' placeholder='Enter User Name' />
+        <input class='UserName' type='text' placeholder='Enter User Name' />
 
-        <input type='email' placeholder='Enter User Email' />
+        <input class='UserEmail' type='email' placeholder='Enter User Email' />
 
-        <input type='password' placeholder='Enter User Password' />
+        <input class='UserPassword' type='password' placeholder='Enter User Password' />
 
         <input class='UserDate' type='text' placeholder='Enter Date Of Birth' readonly />
 

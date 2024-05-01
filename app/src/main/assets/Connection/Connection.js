@@ -1,16 +1,18 @@
 import { AUTOPOSTS } from "../Project/AutoDownloadData/PostDownload.js"
+import { EMAILVERIFICATIONPAGE } from "../Project/CreateAccountPage/EmailVerification.js";
 import { HOMEPAGE } from "../Project/HomePage/HomePage.js"
 import { LOGINPAGE } from "../Project/LoginPage/LoginPage.js"
 
-const CONNECTION=()=>{
+export const CONNECTION=()=>{
 
     AUTOPOSTS();
 
     CONDITION(localStorage.getItem('User'),
     ()=>HOMEPAGE(),
-    ()=>LOGINPAGE()
+    ()=>CONDITION(!localStorage.getItem('User') && localStorage.getItem('UserData') ,
+        ()=>EMAILVERIFICATIONPAGE(),
+        ()=>LOGINPAGE()
+        )
     )
     
 }
-
-export{CONNECTION}
