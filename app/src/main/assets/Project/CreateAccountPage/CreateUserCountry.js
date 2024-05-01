@@ -25,7 +25,7 @@ export const CREATEUSERCOUNTRY=()=>{
                     <h1 class='CountryName'>${element.name}</h1>
                     <h1 class='CountryCode'>${element.phoneCode}</h1>
                 
-                `)
+                `);
 
                 ADD(COUNTRYDISPLAY,HOLDER);
 
@@ -46,7 +46,7 @@ export const CREATEUSERCOUNTRY=()=>{
                 })
 
             })
-            
+
         })
 
     })
