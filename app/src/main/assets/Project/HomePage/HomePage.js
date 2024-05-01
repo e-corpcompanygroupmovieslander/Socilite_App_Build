@@ -1,25 +1,26 @@
 import { ICONPATH } from "../../Module/Module.js"
-import { CREATEPOSTPAGE } from "../CreatePostPage/CreatePostPage.js"
-import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
+import { CREATEPOSTPAGE } from "../CreatePostPage/CreatePostPage.js";
+import { HOMEPAGEPOSTS } from "./HomePagePosts.js";
 
-const HOMEPAGE=()=>{
+export const HOMEPAGE=()=>{
 
     ROUNDFOOTERWIDGET(
-    ``,
-    `
-        <img src='${ICONPATH}chat.png'/>
+        `
+            <div id='HomeDiv'></div>
+        
+        `,
+        `
+            <img src='${ICONPATH}chat.png'/>
 
-        <img class='PostPage' src='${ICONPATH}post.png'/>
+            <img class='Post' src='${ICONPATH}post.png'/>
 
-        <img  class='AccountPage' src='${ICONPATH}profile.png'/>
+            <img src='${ICONPATH}profile.png'/>
 
-    `)
+        `,''
+    );
 
-    CLICKED('.PostPage',()=>{CREATEPOSTPAGE()});
+    HOMEPAGEPOSTS();
 
-    CLICKED('.AccountPage',()=>{USERACCOUNTPAGE()});
-    
+    CLICKED('.Post',()=>{CREATEPOSTPAGE()});
 
 }
-
-export{HOMEPAGE}

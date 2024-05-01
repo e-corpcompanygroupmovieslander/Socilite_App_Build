@@ -1,15 +1,20 @@
-.HeaderOption{
-    margin-right: 1rem;
-    margin-left: auto;
-    font-size: 20px;
+.Sections{
     margin-top: auto;
     margin-bottom: auto;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.CreatePostSEction{
+    text-align: left;
+    margin-left: 0.5rem;
 }
 
 .ImagePreview{
     width: 95%;
     left: 2%;
-    height: auto;
-    max-height: 70%;
     border-radius: 20px;
+    height: auto;
+    max-height: 50%;
 }

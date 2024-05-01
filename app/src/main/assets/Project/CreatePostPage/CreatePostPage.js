@@ -1,38 +1,31 @@
-import { ICONPATH } from "../../Module/Module.js"
 import { HOMEPAGE } from "../HomePage/HomePage.js"
-import { CHOOSEPOSTIMAGE } from "./ChoosePostImage.js"
 
-const CREATEPOSTPAGE=()=>{
+export const CREATEPOSTPAGE=()=>{
 
     BACKHEADERWIDGET(()=>{HOMEPAGE()},
     `
-
-        <h1 class='HeaderOption'>Create Post</h1>
+        <h1 class='Sections'>Post</h1>
     
     `,
     `
+        <p class='CreatePostSEction'>Post Title</p>
 
-        <input type='' maxlength='50' placeholder='Enter Post Title' />
+        <input type='' maxlength='50' />
 
-        <textarea class='' placeholder='Write Your Story'></textarea>
+        <p class='CreatePostSEction'>Description</p>
 
-        <input type='' placeholder='Enter Tags '/>
+        <textarea></textarea>
 
-        <button class='slate'>choose Location</button>
+        <p class='CreatePostSEction'>Choose Image</p>
 
-        <button class='slate'>choose Activity</button>
+        <button class='gray'>Choose Image</button>
 
-        <button class='slate'>Link Friends</button>
+        <img class='ImagePreview' src='../Library/Images/app_icon.png'/>
 
-        <button class='forestgreen'>Continue</button>
+        <button class='forestgreen'>Post</button>
 
+    `,''
 
-    `
-    ,''
-    )
-
-    CLICKED('.forestgreen',()=>{CHOOSEPOSTIMAGE()})
+    );
 
 }
-
-export{CREATEPOSTPAGE}

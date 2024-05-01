@@ -1,0 +1,13 @@
+@import url('./HomePagePosts.css');
+
+.RoundFooter{
+    background: #121212;
+    height: 45px;
+}
+
+#HomeDiv{
+    background: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    bottom: 7%;
+}

@@ -1,30 +1,29 @@
-import { CREAEACCOUNTPAGE } from "../CreateAccountPage/CreateAccountPage.js";
+import { CREATEACCOUNTPAGE } from "../CreateAccountPage/CreateAccountPage.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 
-const LOGINPAGE=()=>{
+export const LOGINPAGE=()=>{
 
     WIDGET(`
 
         <img class='AppIcon' src='../Library/Images/app_icon.png'/>
 
-        <h4> Sign In</h4>
-        
-        <input type='' placeholder='Enter  User Email' />
+        <h2>Sign In</h2>
 
-        <input type='' placeholder='Enter  User Password' />
+        <input type='email' placeholder='Enter User Email' />
+
+        <input type='password' placeholder='Enter User Password' />
 
         <h1 class='ForgotPassword'>Forgot Password?</h1>
 
-        <button class='forestgreen'>LogIn</button>
+        <button class='forestgreen'>Login</button>
 
         <button class='blue'>Create Account</button>
 
     `);
 
-    CLICKED('.forestgreen',()=>{HOMEPAGE()})
+    CLICKED('.blue',()=>{CREATEACCOUNTPAGE()});
 
-    CLICKED('.blue',()=>{CREAEACCOUNTPAGE()})
+    CLICKED('.forestgreen',()=>{HOMEPAGE()});
+
 
 }
-
-export{LOGINPAGE}
