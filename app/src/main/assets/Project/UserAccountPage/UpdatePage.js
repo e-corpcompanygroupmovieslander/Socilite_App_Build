@@ -83,7 +83,6 @@ export const UPDATEUSERDATA=()=>{
 
         })
 
-
     })
 
 }

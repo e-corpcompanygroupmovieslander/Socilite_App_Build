@@ -72,12 +72,11 @@ export const CREATEPOSTPAGE=()=>{
                     "PostTime":new Date(),
                     "PostTitle":POSTTITLE.value,
                     "Description":Description.value,
-                    "PostsLikes":"",
+                    "PostsLikes":"1",
                     "UserID":data.UserID+Date.now(),
                     "PostsLocation":data.UserLocation,
-                    "PeopleLiked":"",
-                    "PostComments":"",
-                    "PostedImage":info.fileName
+                    "PostedImage":info.fileName,
+                    "PeopleLiked":data.UserID,
                 }
     
                 POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(i)=>{
@@ -87,22 +86,9 @@ export const CREATEPOSTPAGE=()=>{
                     let POSTS=++data.UserPosts
 
                     const USERDAT={
-                        "UserActive": data.UserActive,
-                        "UserCode": data.UserCode,
-                        "UserCreated": data.UserCreated,
-                        "UserDate": data.UserDate,
-                        "UserDeleted": data.UserDeleted,
-                        "UserDeletedDate": data.UserDeletedDate,
-                        "UserDeletedMessage": data.UserDeletedMessage,
                         "UserDevice":getBrowserVersion() ,
-                        "UserEmail":data.UserEmail,
-                        "UserFriends": data.UserFriends,
                         "UserID": data.UserID,
                         "UserLastActive": new Date(),
-                        "UserLocation": data.UserLocation,
-                        "UserName": data.UserName,
-                        "UserPassword":data.UserPassword,
-                        "UserPhoto": data.UserPhoto,
                         "UserPosts":POSTS
                     }
         
