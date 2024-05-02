@@ -1,4 +1,4 @@
-import { ICONPATH, MOVIESPATH } from "../../Module/Module.js";
+import { ICONPATH } from "../../Module/Module.js";
 import { AUTOUSERDATA } from "../AutoDownloadData/AutoUserData.js";
 import { AUTOPOSTS } from "../AutoDownloadData/PostDownload.js";
 
@@ -17,8 +17,6 @@ export const HOMEPAGEPOSTS=()=>{
             SHUFFLE(data,(data)=>{
         
                 REDUX(data,(element)=>{
-
-                    console.log(element)
 
                     CREATEELEMENT('div','PostHolder',(POSTHOLDER)=>{
 

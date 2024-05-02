@@ -1,5 +1,6 @@
-import { CREATEPOSTAPI, GETPOSTSAPI, IMAGEUPLOADERAPI } from "../../Module/Module.js";
+import { CREATEPOSTAPI, GETPOSTSAPI, IMAGEUPLOADERAPI, UPDATEUSERAPI } from "../../Module/Module.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
 export const CREATEPOSTPAGE=()=>{
 
@@ -79,16 +80,57 @@ export const CREATEPOSTPAGE=()=>{
                     "PostedImage":info.fileName
                 }
     
-                POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(data)=>{
-                    
-                    GETPACKAGE(GETPOSTSAPI,'cors',(data)=>{
+                POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(i)=>{
 
-                        STORE('local','Posts',JSON.stringify(data))
+                    function getBrowserVersion() { return navigator.appVersion; }
 
-                        HOMEPAGE();
-                
+                    let POSTS=++data.UserPosts
+
+                    const USERDAT={
+                        "UserActive": data.UserActive,
+                        "UserCode": data.UserCode,
+                        "UserCreated": data.UserCreated,
+                        "UserDate": data.UserDate,
+                        "UserDeleted": data.UserDeleted,
+                        "UserDeletedDate": data.UserDeletedDate,
+                        "UserDeletedMessage": data.UserDeletedMessage,
+                        "UserDevice":getBrowserVersion() ,
+                        "UserEmail":data.UserEmail,
+                        "UserFriends": data.UserFriends,
+                        "UserID": data.UserID,
+                        "UserLastActive": new Date(),
+                        "UserLocation": data.UserLocation,
+                        "UserName": data.UserName,
+                        "UserPassword":data.UserPassword,
+                        "UserPhoto": data.UserPhoto,
+                        "UserPosts":POSTS
+                    }
+        
+                    POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERDAT,(data)=>{
+
+                        STORE('local', 'UserData', JSON.stringify(USERDAT));
+
+                        GETPACKAGE(GETPOSTSAPI,'cors',(data)=>{
+
+                            STORE('local','Posts',JSON.stringify(data))
+
+                            GETPACKAGE(GETPOSTSAPI, 'cors', (data) => {
+                                const user = localStorage.getItem('User');
+                                const myPosts = [];
+                                data.forEach(element => {
+                                    if (element.Poster === user) {
+                                        myPosts.push(element);
+                                    }
+                                });
+                                STORE('local', 'MyPosts', JSON.stringify(myPosts));
+
+                                USERACCOUNTPAGE()
+                            });
+                            
+                        })
+                        
                     })
-                
+                    
                 })
 
             } )

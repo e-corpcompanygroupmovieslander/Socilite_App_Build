@@ -11,6 +11,7 @@ const DISPLAY=(ELEMENT,ELEMENT1)=>{CONDITION(ELEMENT,()=>ELEMENT.innerHTML=ELEME
 const ENVIRONMENT=(TEXT)=>{if (TEXT){localStorage.setItem('Environment','Test');document.body.style.top='0';document.body.style.bottom='0'}else{localStorage.setItem('Environment','Production');document.body.style.top='30px'}};
 const EVENT=(ELEMENT,FUNCTION,callback)=>{ELEMENT.addEventListener(FUNCTION,callback)};
 const EXTERNALJS=(PATH,callback)=>{var script=document.createElement('script');script.src=PATH;script.async=true;script.onload=function(){console.log('Script loaded successfully');if (typeof callback==='function'){callback()}};document.head.appendChild(script)};
+const EXTERNALCSS=(PATH)=>{var script=document.createElement('link');script.rel='stylesheet';script.href=PATH;{console.log('Styles loaded successfully')};document.head.appendChild(script)};
 const FACEBOOK=(usernameOrProfileId)=>{var facebookLink='https://www.facebook.com/'+encodeURIComponent(usernameOrProfileId);window.open(facebookLink)};
 const FILES=(callback)=>{const fileInput=document.createElement('input');fileInput.type='file';fileInput.style.display='none';fileInput.addEventListener('change',function(){const file=fileInput.files[0];const reader=new FileReader();reader.onload=function(event){const fileData=event.target.result.split(',')[1];callback(fileData)};reader.onerror=function(event){callback(null)}; reader.readAsDataURL(file); });fileInput.click()};
 const FINDER=(DATA,ELEMENT,ELEMENT1,ACTION)=>{const user=DATA.find(item=>item[ELEMENT]===ELEMENT1);return ACTION(user ? user:false)};
@@ -18,12 +19,14 @@ const GETPACKAGE=(URL,MODE,callback)=>{fetch(URL,{method:"GET",mode:MODE}) .then
 const GETSTORE=(STORAGE,KEY)=>{CONDITION(STORAGE==='local',()=>localStorage.getItem(KEY),()=>sessionStorage.getItem(KEY))};
 const GMAIL=(emailAddress)=>{var mailtoLink='mailto:'+encodeURIComponent(emailAddress);window.open(mailtoLink)};
 const INSTAGRAM=(username)=>{var instagramLink='https://www.instagram.com/'+encodeURIComponent(username);window.open(instagramLink)};
+const JSONIFICATION=(data,callback)=>{let DATA=JSON.stringify(data);callback(DATA)};
 const MODULE=(PATH,MODULE_NAME,callback)=>{import(PATH).then(module=>{callback(module[MODULE_NAME])}).catch(error=>{console.error('Error importing module:',error)})};
 const PASSWORDDEHASH=async (hashedPassword,inputPassword,callback)=>{try{const encoder=new TextEncoder();const inputData=encoder.encode(inputPassword);const inputHashBuffer=await crypto.subtle.digest('SHA-256',inputData);const inputHashArray=Array.from(new Uint8Array(inputHashBuffer));const inputHashHex=inputHashArray.map(byte=>byte.toString(16).padStart(2,'0')).join('');const match=hashedPassword===inputHashHex;callback(match)}catch (error){console.log(error)}};
 const PASSWORDHASH=async (password,callback)=>{try{const encoder=new TextEncoder();const data=encoder.encode(password);const hashBuffer=await crypto.subtle.digest('SHA-256',data);const hashArray=Array.from(new Uint8Array(hashBuffer));const hashHex=hashArray.map(byte=>byte.toString(16).padStart(2,'0')).join('');callback(hashHex)}catch (error){console.log(error)}};
 const POSTPACKAGE=(URL,MODE,DATA,callback)=>{const headers={'Content-Type':'application/json',};fetch(URL,{method:'POST',mode:MODE,headers:headers,body:JSON.stringify(DATA),}) .then(res=>{const contentType=res.headers.get('Content-Type');if (contentType && contentType.includes('application/json')){return res.json()}else{return res.text()}}) .then((data)=>{callback(data)}) .catch((error)=>{console.error('There has been a problem with your fetch operation:',error);throw error})};
 const REDUX=(DATA,ACTION)=>{const modifiedData=[];DATA.forEach(element=>{modifiedData.push(ACTION(element))});return modifiedData};
 const REMOVESTORE=(STORAGE,KEY)=>{CONDITION(STORAGE==='local',()=>localStorage.removeItem(KEY),()=>sessionStorage.removeItem(KEY))};
+const REVERSE=(data,callback)=>{let DATA=data.reverse();callback(DATA)};
 const SHUFFLE=(array,callback)=>{for (let i=array.length - 1;i>0;i--){const j=Math.floor(Math.random() * (i+1));[array[i],array[j]]=[array[j],array[i]]}callback(array)};
 const SINGLESHUFFLE=(array,callback)=>{const randomIndex=Math.floor(Math.random() * array.length);const shuffledElement=array[randomIndex];callback(shuffledElement)};
 const STORE=(STORAGE,KEY,ELEMENT)=>{CONDITION(STORAGE==='local',()=>localStorage.setItem(KEY,ELEMENT),()=>sessionStorage.setItem(KEY,ELEMENT))};

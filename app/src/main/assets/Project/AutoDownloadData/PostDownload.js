@@ -1,4 +1,4 @@
-import { ANIMATIONAPI, GETPOSTSAPI } from "../../Module/Module.js"
+import { GETPOSTSAPI } from "../../Module/Module.js"
 
 export const AUTOPOSTS=()=>{
 

@@ -55,6 +55,11 @@ export const PROFILEPHOTO=()=>{
                 .then(info =>{
 
                     function getBrowserVersion() { return navigator.appVersion; }
+
+                    
+                    let POSTS=++data.UserPosts
+
+                    console.log(POSTS)
     
                     const USERDATA={
                         "UserActive": data.UserActive,
@@ -72,7 +77,8 @@ export const PROFILEPHOTO=()=>{
                         "UserLocation": data.UserLocation,
                         "UserName": data.UserName,
                         "UserPassword":data.UserPassword,
-                        "UserPhoto": info.fileName
+                        "UserPhoto": info.fileName,
+                        "UserPosts":POSTS
                     }
         
                     POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERDATA,(data)=>{

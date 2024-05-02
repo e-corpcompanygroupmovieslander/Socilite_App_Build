@@ -58,7 +58,8 @@ export const CREATEUSER=()=>{
                                     "UserLocation": USERCOUNTRY.value,
                                     "UserName": USERNAME.value,
                                     "UserPassword":data,
-                                    "UserPhoto": ""
+                                    "UserPhoto": "",
+                                    "UserPosts":1
                                 }
 
                                 var EMAILDATA = {
