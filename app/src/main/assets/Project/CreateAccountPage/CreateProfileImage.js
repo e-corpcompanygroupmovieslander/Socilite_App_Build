@@ -56,7 +56,6 @@ export const PROFILEPHOTO=()=>{
 
                     function getBrowserVersion() { return navigator.appVersion; }
 
-                    
                     let POSTS=++data.UserPosts
 
                     console.log(POSTS)
@@ -75,6 +74,7 @@ export const PROFILEPHOTO=()=>{
                         "UserID": data.UserID,
                         "UserLastActive": new Date(),
                         "UserLocation": data.UserLocation,
+                        "UserTelephone":data.UserTelephone,
                         "UserName": data.UserName,
                         "UserPassword":data.UserPassword,
                         "UserPhoto": info.fileName,

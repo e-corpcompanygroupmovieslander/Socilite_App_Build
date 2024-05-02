@@ -56,6 +56,7 @@ export const CREATEUSER=()=>{
                                     "UserID": secretCode,
                                     "UserLastActive": new Date(),
                                     "UserLocation": USERCOUNTRY.value,
+                                    "UserTelephone":USERPHONE.value,
                                     "UserName": USERNAME.value,
                                     "UserPassword":data,
                                     "UserPhoto": "",

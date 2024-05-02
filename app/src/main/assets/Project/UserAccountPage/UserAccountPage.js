@@ -1,4 +1,5 @@
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { UPDATEUSERDATA } from "./UpdatePage.js";
 import { UPDATEUSERPROFILE } from "./UpdateUserProfile.js";
 
 export const USERACCOUNTPAGE=()=>{
@@ -9,7 +10,7 @@ export const USERACCOUNTPAGE=()=>{
 
         BACKHEADERWIDGET(()=>{HOMEPAGE()},
         `
-            <h1 class='Sections'>Account</h1>
+            <h1 class='Sections'>Settings</h1>
     
         `,
         `
@@ -27,7 +28,7 @@ export const USERACCOUNTPAGE=()=>{
 
                         <h1 class='AccountSections'>Friends</h1>
 
-                        <h1 class='AccountSections'>Update</h1>
+                        <h1 id='Update' class='AccountSections'>Update</h1>
                     
                     </div>
                 
@@ -43,6 +44,8 @@ export const USERACCOUNTPAGE=()=>{
         const ProfileImage=document.querySelector('.ProfilePhotoDisplay');
 
         CLICKED('.ProfilePhotoDisplay',()=>{UPDATEUSERPROFILE()})
+
+        CLICKED('#Update',()=>{UPDATEUSERDATA()})
 
         const MyPosts=document.querySelector('.MyPosts')
 
