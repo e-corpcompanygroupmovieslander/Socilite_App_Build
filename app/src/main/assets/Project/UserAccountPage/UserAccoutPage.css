@@ -76,3 +76,21 @@
     margin-bottom: 0;
     color: teal;
 }
+
+.PostedImage{
+    width: 95%;
+    left: 2%;
+    border-radius: 10px;
+    max-height: 50%;
+    object-fit: contain;
+    height: auto;
+    border: 1px solid #a52a2a50;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.DescriptionPost{
+    text-align: left;
+    padding: 2%;
+    word-wrap: break-word;
+}

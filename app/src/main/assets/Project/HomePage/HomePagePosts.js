@@ -27,7 +27,7 @@ export const HOMEPAGEPOSTS=()=>{
 
                         <div class='OptionsHeader'>
 
-                            <img class='UserImage' src=''/>
+                            <img class='UserImage' src='${element.PostersImage || ICONPATH+'user.png' }'/>
 
                             <h1 class='PostersName'>${element.PostersName}</h1>
 
@@ -52,26 +52,9 @@ export const HOMEPAGEPOSTS=()=>{
                         </div>
 
                         `)
-                        
-                        
+                                              
                         ADD(ELEMENT,POSTHOLDER);
 
-                        DECLARATION('.UserImage',(ELEMENT)=>{
-
-                            CONDITION(element.PostersImage,
-                                ()=>ELEMENT.src=element.PostersImage,
-                                ()=>ELEMENT.src=ICONPATH+'user.png'
-                            )
-                        })
-
-                        DECLARATION('#Counter',(ELEMENT)=>{
-
-                            EVENT(ELEMENT,'click',()=>{
-                                alert('')
-                            })
-                        })
-
-                        
                     })
 
                 })

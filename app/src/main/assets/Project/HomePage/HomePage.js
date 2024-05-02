@@ -20,7 +20,7 @@ export const HOMEPAGE=()=>{
     
                 <img class='Post' src='${ICONPATH}post.png'/>
     
-                <img class='ProfileImage' src='${ICONPATH}profile.png'/>
+                <img class='ProfileImager' src='${data.UserPhoto || ICONPATH +'profile.png'}'/>
     
             `,''
         );
@@ -29,23 +29,7 @@ export const HOMEPAGE=()=>{
     
         CLICKED('.Post',()=>{CREATEPOSTPAGE()});
     
-        CLICKED('.ProfileImage',()=>{USERACCOUNTPAGE()});
-
-        const ProfileImage=document.querySelector('.ProfileImage');
-
-        CONDITION(data.UserPhoto ,
-            ()=>CHECK(data,(result)=>{
-                ProfileImage.classList.add('ProfileImager')
-                ProfileImage.src=data.UserPhoto
-            }),
-            ()=>ProfileImage.src=`${ICONPATH}profile.png`
-            
-        )
-
-            
-
-
-    
+        CLICKED('.ProfileImager',()=>{USERACCOUNTPAGE()});
 
     })
 

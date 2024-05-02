@@ -1,8 +1,11 @@
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { DISPLAYMYPOSTS } from "./DisplayMyPosts.js";
 import { UPDATEUSERDATA } from "./UpdatePage.js";
 import { UPDATEUSERPROFILE } from "./UpdateUserProfile.js";
 
 export const USERACCOUNTPAGE=()=>{
+
+    
 
     DEJSON('local','UserData',(data)=>{
 
@@ -16,7 +19,7 @@ export const USERACCOUNTPAGE=()=>{
         `
             <div class='View'>
     
-                <img class='ProfilePhotoDisplay' src='../Library/Images/app_icon.png'/>
+                <img class='ProfilePhotoDisplay' src='${data.UserPhoto || "../Library/Images/app_icon.png"}'/>
             
                 <div class='MyData'>
 
@@ -41,44 +44,13 @@ export const USERACCOUNTPAGE=()=>{
         `,''
         );
 
+        DISPLAYMYPOSTS();
+
         const ProfileImage=document.querySelector('.ProfilePhotoDisplay');
 
-        CLICKED('.ProfilePhotoDisplay',()=>{UPDATEUSERPROFILE()})
+        CLICKED('.ProfilePhotoDisplay',()=>{UPDATEUSERPROFILE()});
 
-        CLICKED('#Update',()=>{UPDATEUSERDATA()})
-
-        const MyPosts=document.querySelector('.MyPosts')
-
-        CONDITION(data.UserPhoto ,
-            ()=>CHECK(data,(result)=>{
-                ProfileImage.classList.add('ProfileImager')
-                ProfileImage.src=data.UserPhoto
-            }),
-            ()=>ProfileImage.src=`../Library/Images/app_icon.png`
-        )
-
-        DEJSON('local','MyPosts',(posts)=>{
-
-            REVERSE(posts,(data)=>{
-
-                REDUX(data,(element)=>{
-    
-                    CREATEELEMENT('div','MyPostsDiv',(ELEMENT)=>{
-    
-                        DISPLAY(ELEMENT,`
-    
-                            <img class='PostImage' src='${element.PostedImage }'/>
-                        
-                        `)
-    
-                        ADD(MyPosts,ELEMENT);
-                    })
-    
-                })
-
-            })
-
-        })
+        CLICKED('#Update',()=>{UPDATEUSERDATA()});
 
     })
 
