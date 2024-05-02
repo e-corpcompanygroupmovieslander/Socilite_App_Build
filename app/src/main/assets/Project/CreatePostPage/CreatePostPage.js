@@ -1,4 +1,4 @@
-import { CREATEPOSTAPI, IMAGEUPLOADERAPI } from "../../Module/Module.js";
+import { CREATEPOSTAPI, GETPOSTSAPI, IMAGEUPLOADERAPI } from "../../Module/Module.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 
 export const CREATEPOSTPAGE=()=>{
@@ -80,7 +80,15 @@ export const CREATEPOSTPAGE=()=>{
                 }
     
                 POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(data)=>{
-                    HOMEPAGE();
+                    
+                    GETPACKAGE(GETPOSTSAPI,'cors',(data)=>{
+
+                        STORE('local','Posts',JSON.stringify(data))
+
+                        HOMEPAGE();
+                
+                    })
+                
                 })
 
             } )
