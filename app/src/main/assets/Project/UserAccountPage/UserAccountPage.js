@@ -27,7 +27,7 @@ export const USERACCOUNTPAGE=()=>{
 
                         <h1 class='AccountSections'>Friends</h1>
 
-                        <h1 class='AccountSections'>likes</h1>
+                        <h1 class='AccountSections'>Update</h1>
                     
                     </div>
                 

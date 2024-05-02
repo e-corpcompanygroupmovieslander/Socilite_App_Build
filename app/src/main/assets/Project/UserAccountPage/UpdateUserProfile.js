@@ -15,6 +15,8 @@ export const UPDATEUSERPROFILE=()=>{
 
             <button class='forestgreen'>Update</button>
 
+            <button class='blue'>Remove Profile Photo</button>
+
             <button class='brown'>Cancel</button>
 
         `);
@@ -33,6 +35,62 @@ export const UPDATEUSERPROFILE=()=>{
                 PICKEDIMAGE=data;
             })
             
+        })
+
+        CLICKED('.blue',()=>{
+    
+            DEJSON('local','UserData',(data)=>{
+    
+                const BUTTON=document.querySelector('.blue');
+    
+                LOADER(BUTTON);
+    
+                function getBrowserVersion() { return navigator.appVersion; }
+
+                let POSTS=++data.UserPosts
+
+                console.log(POSTS)
+
+                const USERDATA={
+                    "UserActive": data.UserActive,
+                    "UserCode": data.UserCode,
+                    "UserCreated": data.UserCreated,
+                    "UserDate": data.UserDate,
+                    "UserDeleted": data.UserDeleted,
+                    "UserDeletedDate": data.UserDeletedDate,
+                    "UserDeletedMessage": data.UserDeletedMessage,
+                    "UserDevice":getBrowserVersion() ,
+                    "UserEmail":data.UserEmail,
+                    "UserFriends": data.UserFriends,
+                    "UserID": data.UserID,
+                    "UserLastActive": new Date(),
+                    "UserLocation": data.UserLocation,
+                    "UserName": data.UserName,
+                    "UserPassword":data.UserPassword,
+                    "UserPhoto": "",
+                    "UserPosts":POSTS
+                }
+    
+                POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERDATA,(data)=>{
+                    GETPACKAGE(GETUSERAPI,'cors',(data)=>{
+                        FINDER(data,'UserID',localStorage.getItem('User'),(users)=>{
+                            CONDITION(users.UserID  === localStorage.getItem('User') && !users.UserDeleted,
+                            ()=>CHECK(users,(result)=>{
+                                STORE('local','UserData',JSON.stringify(users))
+                                USERACCOUNTPAGE();
+                            }),
+                            ()=>CHECK(users,(result)=>{
+                                localStorage.clear();
+                                CONNECTION();
+                            }),
+                            )
+                        })
+                    })
+                })
+
+    
+            })
+    
         })
 
         CLICKED('.forestgreen',()=>{
