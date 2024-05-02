@@ -1,4 +1,5 @@
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { UPDATEUSERPROFILE } from "./UpdateUserProfile.js";
 
 export const USERACCOUNTPAGE=()=>{
 
@@ -40,6 +41,8 @@ export const USERACCOUNTPAGE=()=>{
         );
 
         const ProfileImage=document.querySelector('.ProfilePhotoDisplay');
+
+        CLICKED('.ProfilePhotoDisplay',()=>{UPDATEUSERPROFILE()})
 
         const MyPosts=document.querySelector('.MyPosts')
 
