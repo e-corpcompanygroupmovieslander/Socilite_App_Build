@@ -9,3 +9,6 @@ export const EMAILSENDERAPI='https://script.google.com/macros/s/AKfycbxL-n5l4qm6
 export const CREATEPOSTAPI='https://script.google.com/macros/s/AKfycbyQ1oZHumkA9YRv7JeBhps4DtsU78YMdXFj_lXEPsQHDY9wE20Bf2ejysdllxWlhY07/exec';
 export const GETPOSTSAPI='https://script.google.com/macros/s/AKfycbzLizvakFBY_iXdteJCv3oWiStismSr5hX1PZbK-zIT_D8uOQBrVdw0jNRJt_HKYPrF/exec';
 export const UPDATEPOSTSAPI='https://script.google.com/macros/s/AKfycbxRIRvzpgPFHp3AuOO9tc4fyWHbhs9bcVpiwP1DJNLiDVCIW43dK0VVMGbePAwLQQEF/exec';
+
+//IMAGE UPLOAD
+export const IMAGEUPLOADERAPI='http://www.e-corpcompanygroup.com/ImageCreation.php';

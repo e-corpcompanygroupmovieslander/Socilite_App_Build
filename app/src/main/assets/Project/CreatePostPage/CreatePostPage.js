@@ -1,4 +1,4 @@
-import { CREATEPOSTAPI } from "../../Module/Module.js";
+import { CREATEPOSTAPI, IMAGEUPLOADERAPI } from "../../Module/Module.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 
 export const CREATEPOSTPAGE=()=>{
@@ -29,6 +29,20 @@ export const CREATEPOSTPAGE=()=>{
 
     );
 
+    let PICKEDIMAGE='';
+
+    CLICKED('.gray',()=>{
+
+        FILES((data)=>{
+            const ImagePreview=document.querySelector('.ImagePreview');
+
+            ImagePreview.src = 'data:image/png;base64,' + data;
+
+            PICKEDIMAGE=data;
+        })
+        
+    })
+
     CLICKED('.forestgreen',()=>{
 
         const POSTTITLE=document.querySelector('.Title');
@@ -40,24 +54,38 @@ export const CREATEPOSTPAGE=()=>{
 
             LOADER(BUTTON);
 
-            const USERDATA={
-                "PostersName":data.UserName,
-                "PostersEmail":data.UserEmail,
-                "Poster":data.UserID,
-                "PostersImage":data.UserPhoto,
-                "PostTime":new Date(),
-                "PostTitle":POSTTITLE.value,
-                "Description":Description.value,
-                "PostsLikes":"",
-                "UserID":data.UserID+Date.now(),
-                "PostsLocation":data.UserLocation,
-                "PeopleLiked":"",
-                "PostComments":"",
-            }
-
-            POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(data)=>{
-                HOMEPAGE();
+            fetch(IMAGEUPLOADERAPI,{
+                method:"Post",
+                body:JSON.stringify( {base64Data: PICKEDIMAGE})
             })
+
+            .then(res =>res.json())
+
+            .then(info =>{
+
+                const USERDATA={
+                    "PostersName":data.UserName,
+                    "PostersEmail":data.UserEmail,
+                    "Poster":data.UserID,
+                    "PostersImage":data.UserPhoto,
+                    "PostTime":new Date(),
+                    "PostTitle":POSTTITLE.value,
+                    "Description":Description.value,
+                    "PostsLikes":"",
+                    "UserID":data.UserID+Date.now(),
+                    "PostsLocation":data.UserLocation,
+                    "PeopleLiked":"",
+                    "PostComments":"",
+                    "PostedImage":info.fileName
+                }
+    
+                POSTPACKAGE(CREATEPOSTAPI,'no-cors',USERDATA,(data)=>{
+                    HOMEPAGE();
+                })
+
+            } )
+
+            .catch(error=>{console.error(error)})
 
         })
 

@@ -1,6 +1,7 @@
 import { CREATEUSERAPI, GETUSERAPI } from "../../Module/Module.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 import { CREATEACCOUNTPAGE } from "./CreateAccountPage.js";
+import { PROFILEPHOTO } from "./CreateProfileImage.js";
 
 export const EMAILVERIFICATIONPAGE=()=>{
 
@@ -49,7 +50,7 @@ export const EMAILVERIFICATIONPAGE=()=>{
 
                                             STORE('local','User',data.UserID);
 
-                                            HOMEPAGE();
+                                            PROFILEPHOTO();
 
                                         })
 

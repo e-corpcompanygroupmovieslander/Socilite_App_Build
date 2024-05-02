@@ -29,7 +29,7 @@ export const HOMEPAGEPOSTS=()=>{
 
                         <div class='OptionsHeader'>
 
-                            <img class='UserImage' src='${ICONPATH}user.png'/>
+                            <img class='UserImage' src=''/>
 
                             <h1 class='PostersName'>${element.PostersName}</h1>
 
@@ -39,13 +39,13 @@ export const HOMEPAGEPOSTS=()=>{
                         
                         <div  class='ImageHolder'>
                         
-                            <img class='PostImage' src='${MOVIESPATH + element.MovieImage }'/>
+                            <img class='PostImage' src='${element.PostedImage }'/>
 
                         </div>
                         
                         <div class='OptionsFooter'>
 
-                            <img class='Options' src='${ICONPATH}heart.png'/>
+                            <img id='Counter' class='Options' src='${ICONPATH}heart.png'/>
 
                             <img class='Options' src='${ICONPATH}chat.png'/>
                 
@@ -54,9 +54,26 @@ export const HOMEPAGEPOSTS=()=>{
                         </div>
 
                         `)
-
+                        
+                        
                         ADD(ELEMENT,POSTHOLDER);
-        
+
+                        DECLARATION('.UserImage',(ELEMENT)=>{
+
+                            CONDITION(element.PostersImage,
+                                ()=>ELEMENT.src=element.PostersImage,
+                                ()=>ELEMENT.src=ICONPATH+'user.png'
+                            )
+                        })
+
+                        DECLARATION('#Counter',(ELEMENT)=>{
+
+                            EVENT(ELEMENT,'click',()=>{
+                                alert('')
+                            })
+                        })
+
+                        
                     })
 
                 })
