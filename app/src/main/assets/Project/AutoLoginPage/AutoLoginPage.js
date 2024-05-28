@@ -9,6 +9,6 @@ export const AUTOLOGINPAGE=()=>{
 
         ()=>LOGINPAGE()
 
-    )
+    );
 
-}
+};
