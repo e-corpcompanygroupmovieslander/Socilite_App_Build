@@ -12,7 +12,7 @@ export const USERPROFILEPHOTOPAGE=()=>{
 
         BACKHEADERWIDGET(()=>{USERACCOUNTPAGE()},
             `
-                <h1 id='CreatePost' class='Post'>Profile Photo</h1>
+                <h1 class='Sections'>Profile Photo</h1>
 
             `
             ,
