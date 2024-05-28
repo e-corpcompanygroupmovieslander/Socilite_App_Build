@@ -87,9 +87,9 @@ export const USERPOSTSPAGE=()=>{
 
                     POSTPACKAGE(CREATEPOTSAPI,'no-cors',USER,(data)=>{
 
-                        AUTODOWNLOADPOSTS();
-
                         POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERDATA,(data)=>{
+
+                            AUTODOWNLOADPOSTS();
 
                             AUTOUPDATEUSER();
     
