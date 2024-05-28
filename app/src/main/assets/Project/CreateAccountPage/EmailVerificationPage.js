@@ -1,27 +1,114 @@
+import { CREATEACCOUNTAPI, USERSAPI } from "../Apis/Apis.js";
+import { HOMEPAGE } from "../HomePage/HomePage.js";
 import { CREATEACCOUNTPAGE } from "./CreateAccountPage.js";
 
 export const EMAILVERFICATIONPAGE=()=>{
 
-    WIDGET(`
+    DEJSON('local','UserData',(data)=>{
 
-        <h2>Socilite</h2>
+        WIDGET(`
 
-        <input type='text' class='Email' placeholder='Enter Verification Code' />
+            <h2>Socilite</h2>
 
-        <h1 class='ForgotPassword'>Forgot Password?</h1>
+            <input type='text' class='Email' placeholder='Enter Verification Code' />
 
-        <button class='forestgreen'>Verify</button>
+            <button class='forestgreen'>Verify</button>
 
-        <button class='brown'>Cancel</button>
+            <button class='brown'>Cancel</button>
 
-    `);
+        `);
 
-    CLICKED('.brown',()=>{
+        const Email=document.querySelector('.Email');
 
-        REMOVESTORE('local','UserData');
+        const Button=document.querySelector('.forestgreen');
 
-        CREATEACCOUNTPAGE();
+        CLICKED('.forestgreen',()=>{
+
+            CONDITION(Email.value ,
+    
+                ()=>CONDITION(Email.value === data.UserID ,
+    
+                    ()=>CHECK(Email,(result)=>{
+
+                        LOADER(Button);
+                    
+                        GETPACKAGE(USERSAPI,'cors',(info)=>{
+                    
+                            FINDER(info,'UserEmail',data.UserEmail,(users)=>{
+                    
+                                CONDITION(users.UserEmail === data.UserEmail,
+                    
+                                    ()=>CHECK(Email,(result)=>{
+                    
+                                        ORIGIN(Button,'Verify');
+                    
+                                        MESSAGE('Email Taken');
+                    
+                                    }),
+                    
+                                    ()=>CHECK(Email,(result)=>{
+                    
+                                        POSTPACKAGE(CREATEACCOUNTAPI,'no-cors',data,(create)=>{
+                    
+                                            HOMEPAGE();
+                    
+                                        });
+                    
+                                    }),
+                    
+                                );
+                    
+                            });
+                    
+                        });
+                    
+                    }),
+        
+                    ()=>CHECK(Email,(result)=>{
+        
+                        VIBRATION(500);
+                        
+                        STYLED(Email,'border-bottom','1px solid red');
+        
+                        setTimeout(() => {
+        
+                            STYLED(Email,'border-bottom','1px solid #cdcdcd20');
+                            
+                        }, 2000);
+        
+                    })
+        
+                ),
+    
+                ()=>CHECK(Email,(result)=>{
+    
+                    VIBRATION(500);
+                    
+                    STYLED(Email,'border-bottom','1px solid red');
+    
+                    setTimeout(() => {
+    
+                        STYLED(Email,'border-bottom','1px solid #cdcdcd20');
+                        
+                    }, 2000);
+    
+                })
+    
+            );
+    
+        })
+    
+        CLICKED('.brown',()=>{
+    
+            REMOVESTORE('local','UserData');
+    
+            CREATEACCOUNTPAGE();
+    
+        })
 
     })
 
+ 
+
 }
+

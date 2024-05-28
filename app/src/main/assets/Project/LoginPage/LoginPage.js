@@ -12,6 +12,8 @@ export const LOGINPAGE=()=>{
 
         <input type='password' class='Password'  placeholder='Enter User Password' />
 
+        <h1 class='ForgotPassword'>Forgot Password?</h1>
+
         <button class='forestgreen'>Sign In</button>
     
         <button class='blue'>Create Account </button>
