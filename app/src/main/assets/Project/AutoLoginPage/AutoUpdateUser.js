@@ -17,7 +17,9 @@ export const AUTOUPDATEUSER=()=>{
 
                 ()=>CHECK(localStorage.getItem('User'),(result)=>{
 
-                    CLEARSTORAGE();
+                    REMOVESTORE('local','User');
+
+                    REMOVESTORE('local','UserData');
                     
                     CONNECTION();
     
