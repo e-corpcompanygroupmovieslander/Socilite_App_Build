@@ -25,7 +25,7 @@ export const USERPROFILEDETAILS=()=>{
 
                 <input type='text' placeholder='UserOccupation ' />
 
-                <textarea placeholder='About You' ></textarea>
+                <textarea id='AboutMe' placeholder='About You' ></textarea>
 
                 <button class='forestgreen'>Update</button>
  
@@ -33,6 +33,16 @@ export const USERPROFILEDETAILS=()=>{
             `,''
 
         );
+
+        const ABOUTME=document.querySelector('#AboutMe');
+
+        EVENT(ABOUTME,'focus',()=>{
+            STYLED(ABOUTME,'margin-bottom','250px')
+        })
+
+        EVENT(ABOUTME,'blur',()=>{
+            STYLED(ABOUTME,'margin-bottom','0.5rem')
+        })
 
     });
 
