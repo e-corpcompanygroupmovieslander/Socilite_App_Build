@@ -1,4 +1,5 @@
 import { HOMEPOSTSPAGE } from "../HomePostsPage/HomePostsPage.js";
+import { USERPOSTSPAGE } from "../UserPostsPage/UserPostsPage.js";
 
 export const HOMEPAGE=()=>{
 
@@ -19,7 +20,7 @@ export const HOMEPAGE=()=>{
 
                 <button class='FloatPost'>
 
-                    <img  src='${WHITEICONS}post.png'/>
+                    <img src='${WHITEICONS}post.png'/>
                 
                 </button>
             
@@ -27,6 +28,8 @@ export const HOMEPAGE=()=>{
         );
 
         HOMEPOSTSPAGE();
+
+        CLICKED('.FloatPost',()=>{USERPOSTSPAGE()})
 
     });
 

@@ -1,0 +1,16 @@
+.Post{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 1rem;
+    color: teal;
+}
+
+.SelectedImage{
+    position: relative;
+    width: 95%;
+    height: 50%;
+    left: 2%;
+    border: 1px solid #cdcdcd20;
+
+}
