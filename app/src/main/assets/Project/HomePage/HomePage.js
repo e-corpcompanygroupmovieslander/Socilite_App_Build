@@ -1,3 +1,4 @@
+import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
 import { AUTOUPDATEUSER } from "../AutoLoginPage/AutoUpdateUser.js";
 import { HOMEPOSTSPAGE } from "../HomePostsPage/HomePostsPage.js";
 import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
@@ -6,6 +7,8 @@ import { USERPOSTSPAGE } from "../UserPostsPage/UserPostsPage.js";
 export const HOMEPAGE=()=>{
 
     AUTOUPDATEUSER();
+
+    AUTODOWNLOADPOSTS();
 
     DEJSON('local','UserData',(data)=>{
 
