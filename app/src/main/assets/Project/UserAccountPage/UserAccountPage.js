@@ -1,5 +1,6 @@
 import { CONNECTION } from "../../Connection/Connection.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { FULLUSERDATA } from "./FullUserdata.js";
 import { USERPROFILEDETAILS } from "./UserDetailsPage.js";
 import { USERPOSTS } from "./UserPosts.js";
 import { USERPROFILEPHOTOPAGE } from "./UserProfilePhotoPage.js";
@@ -29,7 +30,7 @@ export const USERACCOUNTPAGE=()=>{
 
                         <div class='UserOptionsDiv'>
 
-                            <img src='${WHITEICONS}user.png'/>
+                            <img id='FullData' src='${WHITEICONS}user.png'/>
 
                             <img id='UpdateProfiles' src='${WHITEICONS}review.png'/>
 
@@ -63,7 +64,9 @@ export const USERACCOUNTPAGE=()=>{
 
     CLICKED('.UserPhoto',()=>{USERPROFILEPHOTOPAGE()});
 
-    CLICKED('#UpdateProfiles',()=>{USERPROFILEDETAILS()})
+    CLICKED('#UpdateProfiles',()=>{USERPROFILEDETAILS()});
+
+    CLICKED('#FullData',()=>{FULLUSERDATA()});
 
     USERPOSTS();
 

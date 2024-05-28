@@ -80,3 +80,12 @@
     margin: 1% 1.2%;
     border-radius: 5px;
 }
+
+.UserFullPhoto{
+    width: 100%;
+}
+
+.UsersName{
+    position: absolute;
+    width: 50%;
+}
