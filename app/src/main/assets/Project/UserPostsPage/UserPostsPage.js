@@ -25,7 +25,7 @@ export const USERPOSTSPAGE=()=>{
 
             <br><br>
 
-            <input class='PostImageSelection' type='file' />
+            <input class='PostImageSelection' type='file' accept='image/*' />
 
             <br><br>
 
