@@ -72,7 +72,7 @@ export const USERPROFILEPHOTOPAGE=()=>{
     
                 const USERDATA={
                     "UserID":localStorage.getItem('User'),
-                    "UserUploads":"1",
+                    "UserUploads":++data.UserUploads,
                     "UserPhoto":IMAGEDATA
                 }
     
