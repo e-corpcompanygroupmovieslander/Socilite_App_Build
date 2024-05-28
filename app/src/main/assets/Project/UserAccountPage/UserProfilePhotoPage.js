@@ -60,8 +60,8 @@ export const USERPROFILEPHOTOPAGE=()=>{
                 const USER={
                     "PostersName":data.UserName,
                     "PostersEmail":data.UserEmail,
-                    "Description":`${data.UserName} has Created Their First post On Socilite`,
-                    "PostsLocation":"",
+                    "Description":`${data.UserName} has Updated Their Profile Photo`,
+                    "PostsLocation":data.UserLocation,
                     "PostTitle":"Profile Photo",
                     "PostTime":new Date(),
                     "Poster":localStorage.getItem('User'),
