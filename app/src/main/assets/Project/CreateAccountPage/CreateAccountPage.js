@@ -1,48 +1,202 @@
-import { LOGINPAGE } from "../LoginPage/LoginPage.js";
-import { CREATEUSER } from "./CreateUser.js";
-import { CREATEUSERCOUNTRY } from "./CreateUserCountry.js";
-import { CREATEUSERDATA } from "./CreateUserDate.js";
+CREATEACCOUNTPAGE = () => {
 
-export const CREATEACCOUNTPAGE=()=>{
+    CLEAR('');
 
-    WIDGET(`
+    TEXT('', 'h1', 'AppName', 'Socilite', '', () => {});
 
-        <img class='AppIcon' src='../Library/Images/app_icon.png'/>
+    DECLARATION('.AppName', (ELEMENT) => {
 
-        <h2>Sign Up</h2>
+        STYLED(ELEMENT, 'font-size', '30px');
+        STYLED(ELEMENT, 'margin-top', '30px');
+        STYLED(ELEMENT, 'margin-bottom', '30px');
 
-        <input class='UserName' type='text' placeholder='Enter User Name' />
+    });
 
-        <input class='UserEmail' type='email' placeholder='Enter User Email' />
+    TEXT('', 'p', 'LoginMessage', 'Create Account To Get Started', '', () => {});
 
-        <input class='UserPassword' type='password' placeholder='Enter User Password' />
+    DECLARATION('.LoginMessage', (ELEMENT) => {
 
-        <input class='UserDate' type='text' placeholder='Enter Date Of Birth' readonly />
+        STYLED(ELEMENT, 'font-size', '15px');
+        STYLED(ELEMENT, 'margin-bottom', '10px');
 
-        <input class='UserLocation' type='text' placeholder='Enter User Location' readonly />
+    });
 
-        <h1 class='CodeDisplay'>+</h1>
+    INPUT('', 'UserName', 'Enter User Name', '');
 
-        <input  class='UserTelephone' type='tel' maxlength='10' placeholder='Enter User Telephone' />
+    INPUT('', 'Email', 'Enter User Email', 'email');
 
-        <button class='forestgreen'>Create Account</button>
+    INPUT('', 'Password', 'Enter User Password', 'password');
 
-        <button class='blue'>Login</button>
+    BUTTON('', 'Sign Up', '', 'LoginUser', 'forestgreen', () => {
 
-        <div class='UserDateDiv'></div>
+        const UserName = document.querySelector('.UserName');
+        const Email = document.querySelector('.Email');
+        const Password = document.querySelector('.Password');
 
-        <div class='UserCountryDiv'></div>
+        const ELEMENT = document.querySelector('.LoginUser');
 
-        
-    `);
+        let intervalID; 
+        const colorChange = () => {
+            let index = 0;
+            intervalID = setInterval(() => {
+                index = (index + 1) % COLOR.length;
+                STYLED(ELEMENT, 'border', `1px solid ${COLOR[index].name}`);
+            }, 2000);
+        };
 
-    CLICKED('.blue',()=>{LOGINPAGE()});
+        const stopColorChange = () => {
+            clearInterval(intervalID);
+            STYLED(ELEMENT, 'border', '1px solid forestgreen'); // Reset to the original color
+        };
 
-    CLICKED('.UserDate',()=>{CREATEUSERDATA()});
+        CONDITION(UserName.value,
+            () => CONDITION(Email.value,
+                () => CONDITION(Password.value,
+                    () => CHECK(Password.value, (result) => {
 
-    CLICKED('.forestgreen',()=>{CREATEUSER()});
+                        STYLED(Email, 'border', '1px solid #cdcdcd20');
+                        STYLED(Password, 'border', '1px solid #cdcdcd20');
 
-    CLICKED('.UserLocation',()=>{CREATEUSERCOUNTRY()})
+                        CONDITION(localStorage.getItem('NetWork'),
+                            () => CHECK(ELEMENT, (result) => {
 
-   
-}
+                                STYLED(ELEMENT, 'background', '#00000080');
+                                STYLED(ELEMENT, 'border', '1px solid forestgreen');
+
+                                colorChange(); // Start the color changing interval
+
+                                GETPACKAGE(USERSAPI, 'cors', (data) => {
+
+                                    FINDER(data, 'UserEmail', Email.value, (users) => {
+
+                                        CONDITION(users.UserEmail === Email.value,
+                                            () => CHECK(users, (result) => {
+
+                                                PASSWORDDEHASH(result.UserPassword, Password.value, (data) => {
+
+                                                    CONDITION(data === true,
+                                                        () => CHECK(users, (result) => {
+
+                                                            CONDITION(users.UserDeleted,
+                                                                () => CHECK(Password.value, (result) => {
+
+                                                                    stopColorChange(); // Stop the interval
+                                                                    VIBRATION(500);
+
+                                                                    STYLED(Password, 'border', '1px solid red');
+                                                                    STYLED(Email, 'border', '1px solid red');
+
+                                                                }),
+                                                                () => CHECK(users, (result) => {
+
+                                                                    STORE('local', 'User', users.UserID);
+
+                                                                    JSONIFICATION(users, (info) => {
+
+                                                                        STORE('local', 'UserData', info);
+
+                                                                        EXTERNALJS(FILESPATH + 'HomePage/HomePage.js', () => HOMEPAGE());
+
+                                                                    });
+
+                                                                })
+                                                            );
+
+                                                        }),
+                                                        () => CHECK(Password.value, (result) => {
+
+                                                            stopColorChange(); 
+                                                            VIBRATION(500);
+
+                                                            STYLED(Password, 'border', '1px solid red');
+
+                                                            STYLED(ELEMENT, 'background', 'forestgreen');
+
+                                                        })
+                                                    );
+
+                                                });
+
+                                            }),
+                                            () => CHECK(Email.value, (result) => {
+
+                                                stopColorChange(); 
+                                                VIBRATION(500);
+                                                STYLED(Email, 'border', '1px solid red');
+
+                                                STYLED(ELEMENT, 'background', 'forestgreen');
+
+                                            })
+                                        );
+
+                                    });
+
+                                });
+
+                            }),
+                            () => CHECK(ELEMENT, (result) => {
+
+                                STYLED(ELEMENT, 'background', 'brown');
+
+                                setTimeout(() => {
+
+                                    STYLED(ELEMENT, 'background', 'forestgreen');
+
+                                }, 2000);
+
+                            })
+                        );
+
+                    }),
+                    () => CHECK(Password.value, (result) => {
+
+                        VIBRATION(500);
+
+                        STYLED(Password, 'border', '1px solid red');
+
+                        setTimeout(() => {
+
+                            STYLED(Password, 'border', '1px solid #cdcdcd20');
+
+                        }, 2000);
+
+                    })
+                ),
+                () => CHECK(Email.value, (result) => {
+
+                    VIBRATION(500);
+
+                    STYLED(Email, 'border', '1px solid red');
+
+                    setTimeout(() => {
+
+                        STYLED(Email, 'border', '1px solid #cdcdcd20');
+
+                    }, 2000);
+
+                })
+            ),
+            () => CHECK(UserName.value, (result) => {
+
+                VIBRATION(500);
+
+                STYLED(UserName, 'border', '1px solid red');
+
+                setTimeout(() => {
+
+                    STYLED(UserName, 'border', '1px solid #cdcdcd20');
+
+                }, 2000);
+
+            })
+        );
+
+    });
+
+    BUTTON('', 'LogIn', WHITERIGHTBACKICON, '', 'blue', () => {
+
+        EXTERNALJS(FILESPATH + 'LoginPage/LoginPage.js', () => LOGINPAGE());
+
+    });
+
+};

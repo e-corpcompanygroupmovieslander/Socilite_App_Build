@@ -1,76 +1,174 @@
-import { GETUSERAPI } from "../../Module/Module.js";
-import { CREATEACCOUNTPAGE } from "../CreateAccountPage/CreateAccountPage.js";
-import { HOMEPAGE } from "../HomePage/HomePage.js";
+LOGINPAGE = () => {
 
-export const LOGINPAGE=()=>{
+    CLEAR('');
 
-    WIDGET(`
+    TEXT('', 'h1', 'AppName', 'Socilite', '', () => {});
 
-        <img class='AppIcon' src='../Library/Images/app_icon.png'/>
+    DECLARATION('.AppName', (ELEMENT) => {
 
-        <h2>Sign In</h2>
-
-        <input class='LoginEmail' type='email' placeholder='Enter User Email' />
-
-        <input class='LoginPassword' type='password' placeholder='Enter User Password' />
-
-        <h1 class='ForgotPassword'>Forgot Password?</h1>
-
-        <button class='forestgreen'>Login</button>
-
-        <button class='blue'>Create Account</button>
-
-    `);
-
-    CLICKED('.blue',()=>{CREATEACCOUNTPAGE()});
-
-    CLICKED('.forestgreen',()=>{
-
-        const LoginEmail=document.querySelector('.LoginEmail');
-
-        const LoginPassword=document.querySelector('.LoginPassword');
-
-        CONDITION(LoginEmail.value,
-            ()=>CONDITION(LoginPassword.value,
-                ()=>DECLARATION('.forestgreen',(ELEMENT)=>{
-                    
-                    LOADER(ELEMENT);
-
-                    GETPACKAGE(GETUSERAPI,'cors',(data)=>{
-                        FINDER(data,'UserEmail',LoginEmail.value,(users)=>{
-                            CONDITION(users.UserEmail === LoginEmail.value,
-                                ()=>CONDITION(users.UserCode === LoginPassword.value,
-                                    ()=>CONDITION(users.UserDeleted,
-                                        ()=>CHECK(users,(result)=>{
-                                            MESSAGE('Something Went Wrong');
-                                            ORIGIN(ELEMENT,'LogIn');
-                                        }),
-                                        ()=>CHECK(users,(result)=>{
-                                            STORE('local','User',users.UserID);
-                                            STORE('local','UserData',JSON.stringify(users));
-                                            HOMEPAGE();
-                                        })
-                                    ),
-                                    ()=>CHECK(users,(result)=>{
-                                        MESSAGE('Wrong User Password');
-                                        ORIGIN(ELEMENT,'LogIn');
-                                    })
-                                ),
-                                ()=>CHECK(users,(result)=>{
-                                    MESSAGE('Wrong User Email');
-                                    ORIGIN(ELEMENT,'LogIn');
-                                })
-                            )
-                        })
-                    })
-
-                }),
-                ()=>MESSAGE('Enter User Password')
-            ),
-            ()=>MESSAGE('Enter User Email')
-        )
+        STYLED(ELEMENT, 'font-size', '30px');
+        STYLED(ELEMENT, 'margin-top', '30px');
+        STYLED(ELEMENT, 'margin-bottom', '30px');
 
     });
 
+    TEXT('', 'p', 'LoginMessage', 'Login To Access Your Account', '', () => {});
 
-}
+    DECLARATION('.LoginMessage', (ELEMENT) => {
+
+        STYLED(ELEMENT, 'font-size', '15px');
+        STYLED(ELEMENT, 'margin-bottom', '10px');
+
+    });
+
+    INPUT('', 'Email', 'Enter User Email', 'email',);
+
+    INPUT('', 'Password', 'Enter User Password', 'password');
+
+    TEXT('', 'p', 'ForgotPassword', 'Forgot Password?', '', () => {});
+
+    DECLARATION('.ForgotPassword', (ELEMENT) => {
+
+        STYLED(ELEMENT, 'text-align', 'right');
+        STYLED(ELEMENT, 'margin-right', '15px');
+
+    });
+
+    BUTTON('', 'Sign In', '', 'LoginUser', 'forestgreen', () => {
+
+        const Email = document.querySelector('.Email');
+        const Password = document.querySelector('.Password');
+        const ELEMENT = document.querySelector('.LoginUser');
+
+
+
+        CONDITION(Email.value,
+            () => CONDITION(Password.value,
+                () => CHECK(Password.value, (result) => {
+
+                    STYLED(Email, 'border', '1px solid #cdcdcd20');
+                    STYLED(Password, 'border', '1px solid #cdcdcd20');
+
+                    CONDITION(localStorage.getItem('NetWork'),
+                        () => CHECK(ELEMENT, (result) => {
+
+                            STYLED(ELEMENT, 'background', '#00000080');
+                            STYLED(ELEMENT, 'border', '1px solid forestgreen');
+
+                            colorChange();
+
+                            GETPACKAGE(USERSAPI, 'cors', (data) => {
+
+                                FINDER(data, 'UserEmail', Email.value, (users) => {
+
+                                    CONDITION(users.UserEmail === Email.value,
+                                        () => CHECK(users, (result) => {
+
+                                            PASSWORDDEHASH(result.UserPassword, Password.value, (data) => {
+
+                                                CONDITION(data === true,
+                                                    () => CHECK(users, (result) => {
+
+                                                        CONDITION(users.UserDeleted,
+                                                            () => CHECK(Password.value, (result) => {
+
+                                                                stopColorChange(); 
+                                                                VIBRATION(500);
+
+                                                                STYLED(Password, 'border', '1px solid red');
+                                                                STYLED(Email, 'border', '1px solid red');
+
+                                                            }),
+                                                            () => CHECK(users, (result) => {
+
+                                                                STORE('local', 'User', users.UserID);
+
+                                                                JSONIFICATION(users, (info) => {
+
+                                                                    STORE('local', 'UserData', info);
+
+                                                                    EXTERNALJS(FILESPATH + 'HomePage/HomePage.js', () => HOMEPAGE());
+
+                                                                });
+
+                                                            })
+                                                        );
+
+                                                    }),
+                                                    () => CHECK(Password.value, (result) => {
+
+                                                        VIBRATION(500);
+                                                        STYLED(Password, 'border', '1px solid red');
+                                                        stopColorChange(); 
+                                                        STYLED(ELEMENT, 'background', 'forestgreen');
+                                                    })
+                                                );
+
+                                            });
+
+                                        }),
+                                        () => CHECK(Email.value, (result) => {
+
+                                            stopColorChange(); 
+                                            VIBRATION(500);
+                                            STYLED(Email, 'border', '1px solid red');
+                                            STYLED(ELEMENT, 'background', 'forestgreen');
+
+                                        })
+                                    );
+
+                                });
+
+                            });
+
+                        }),
+                        () => CHECK(ELEMENT, (result) => {
+
+                            STYLED(ELEMENT, 'background', 'brown');
+
+                            setTimeout(() => {
+
+                                STYLED(ELEMENT, 'background', 'forestgreen');
+
+                            }, 2000);
+
+                        })
+                    );
+
+                }),
+                () => CHECK(Password.value, (result) => {
+
+                    VIBRATION(500);
+                    STYLED(Password, 'border', '1px solid red');
+
+                    setTimeout(() => {
+
+                        STYLED(Password, 'border', '1px solid #cdcdcd20');
+
+                    }, 2000);
+
+                })
+            ),
+            () => CHECK(Email.value, (result) => {
+
+                VIBRATION(500);
+                STYLED(Email, 'border', '1px solid red');
+
+                setTimeout(() => {
+
+                    STYLED(Email, 'border', '1px solid #cdcdcd20');
+
+                }, 2000);
+
+            })
+        );
+
+    });
+
+    BUTTON('', 'Create Account', WHITERIGHTBACKICON, '', 'blue', () => {
+
+        EXTERNALJS(FILESPATH + 'CreateAccountPage/CreateAccountPage.js', () => CREATEACCOUNTPAGE())
+
+    });
+
+};

@@ -1,57 +1,59 @@
-import { HOMEPAGE } from "../HomePage/HomePage.js"
-import { DISPLAYMYPOSTS } from "./DisplayMyPosts.js";
-import { UPDATEUSERDATA } from "./UpdatePage.js";
-import { UPDATEUSERPROFILE } from "./UpdateUserProfile.js";
+USERACCOUNT=()=>{
 
-export const USERACCOUNTPAGE=()=>{
+    CLEAR('');
 
-    
+    HEADER('','HomeHeader');
 
-    DEJSON('local','UserData',(data)=>{
+    DECLARATION('.HomeHeader',(ELEMENT)=>{
 
-        //console.log(data)
+        ICON(ELEMENT,WHITEBACKICON,'MesageIcon',()=>{
 
-        BACKHEADERWIDGET(()=>{HOMEPAGE()},
-        `
-            <h1 class='Sections'>Settings</h1>
-    
-        `,
-        `
-            <div class='View'>
-    
-                <img class='ProfilePhotoDisplay' src='${data.UserPhoto || "../Library/Images/app_icon.png"}'/>
+            EXTERNALJS(FILESPATH+'HomePage/HomePage.js',()=>HOMEPAGE());
+
+        });
+
+        DECLARATION('.MesageIcon',(Element)=>{
+
+            STYLED(Element,'margin-left','1rem');
+            STYLED(Element,'width','25px');
+            STYLED(Element,'height','25px');
+            STYLED(Element,'background','transparent');
+
+        });
+
+        ICON(ELEMENT,WHITESETTINGICON,'UserIcon',()=>{
+
             
-                <div class='MyData'>
+        });
 
-                    <h1 class='UserData'>${data.UserName}</h1>
+        DECLARATION('.UserIcon',(Element)=>{
 
-                    <div class='AccountHolder'>
+            STYLED(Element,'margin-right','1rem');
+            STYLED(Element,'width','30px');
+            STYLED(Element,'height','30px');
+            STYLED(Element,'border-radius','50px');
+            STYLED(Element,'background','transparent');
 
-                        <h1 id='PostsNumber' class='AccountSections'>${data.UserPosts}</h1>
+        });
 
-                        <h1 class='AccountSections'>Friends</h1>
+    });
 
-                        <h1 id='Update' class='AccountSections'>Update</h1>
-                    
-                    </div>
-                
-                </div>
+    FULLVIEW('','FullDiv');    
+        
+    DECLARATION('.FullDiv',(ELEMENT)=>{
 
-            </div>
+        STYLED(ELEMENT,'top','55px');
+        STYLED(ELEMENT,'bottom','0');
+        STYLED(ELEMENT,'background','transparent');
 
-            <div class='MyPosts'></div>
-            
-        `,''
-        );
+        VIEW(ELEMENT,'UserAccountDiv');
 
-        DISPLAYMYPOSTS();
+        EXTERNALJS(FILESPATH+'UserAccountPage/UserDetails.js',()=>{USERDETAILS()})
 
-        const ProfileImage=document.querySelector('.ProfilePhotoDisplay');
+        FULLVIEW(ELEMENT,'PostsDIv');
 
-        CLICKED('.ProfilePhotoDisplay',()=>{UPDATEUSERPROFILE()});
+       EXTERNALJS(FILESPATH+'UserAccountPage/UserPosts.js',()=>{USERPOSTS()})
 
-        CLICKED('#Update',()=>{UPDATEUSERDATA()});
+    });
 
-    })
-
-}
+};

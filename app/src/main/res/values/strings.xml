@@ -1,6 +1,3 @@
 <resources>
-
-    <!--Change App Name Here-->
-    <string name="app_name">Advance-Native</string>
-
+    <string name="app_name">Advance_Native</string>
 </resources>

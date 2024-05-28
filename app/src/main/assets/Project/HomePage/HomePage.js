@@ -1,38 +1,71 @@
-import { ICONPATH } from "../../Module/Module.js"
-import { AUTOMYPOSTS } from "../AutoDownloadData/AutoMyPosts.js";
-import { CREATEPOSTPAGE } from "../CreatePostPage/CreatePostPage.js";
-import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
-import { HOMEPAGEPOSTS } from "./HomePagePosts.js";
+HOMEPAGE=()=>{
 
-export const HOMEPAGE=()=>{
+    EXTERNALJS(FILESPATH+'AppAutoRuns/UpdateUserData.js',()=>UPDATEUSERDATA(()=>{
 
-    AUTOMYPOSTS();
+    }));
+
+    CLEAR('');
 
     DEJSON('local','UserData',(data)=>{
+        
+        HEADER('','HomeHeader');
 
-        ROUNDFOOTERWIDGET(
-            `
-                <div id='HomeDiv'></div>
-            
-            `,
-            `
-                <img src='${ICONPATH}chat.png'/>
-    
-                <img class='Post' src='${ICONPATH}post.png'/>
-    
-                <img class='ProfileImager' src='${data.UserPhoto || ICONPATH +'profile.png'}'/>
-    
-            `,''
-        );
-    
-        HOMEPAGEPOSTS();
-    
-        CLICKED('.Post',()=>{CREATEPOSTPAGE()});
-    
-        CLICKED('.ProfileImager',()=>{USERACCOUNTPAGE()});
+        DECLARATION('.HomeHeader',(ELEMENT)=>{
 
-    })
+            ICON(ELEMENT,WHITECHATICON,'MesageIcon',()=>{
 
+            });
 
+            DECLARATION('.MesageIcon',(Element)=>{
 
-}
+                STYLED(Element,'margin-left','1rem');
+                STYLED(Element,'width','30px');
+                STYLED(Element,'height','30px');
+                STYLED(Element,'background','transparent');
+
+            });
+
+            INPUT(ELEMENT,'Search','Search','search');
+
+            DECLARATION('.Search',(Element)=>{
+
+                STYLED(Element,'width','60%');
+                STYLED(Element,'left','0');
+                STYLED(Element,'margin-left','auto');
+                STYLED(Element,'margin-right','auto');
+                STYLED(Element,'margin-top','auto');
+                STYLED(Element,'margin-bottom','auto');
+                
+            });
+
+            ICON(ELEMENT,data.UserPhoto||WHITEUSERICON,'UserIcon',()=>{
+
+                EXTERNALJS(FILESPATH+'UserAccountPage/UserAccountPage.js',()=>USERACCOUNT());
+
+            });
+
+            DECLARATION('.UserIcon',(Element)=>{
+
+                STYLED(Element,'margin-right','1rem');
+                STYLED(Element,'width','40px');
+                STYLED(Element,'height','40px');
+                STYLED(Element,'border-radius','50px');
+                STYLED(Element,'background','transparent');
+
+            });
+
+        });
+
+        FULLVIEW('','FullDiv');
+        
+        EXTERNALJS(FILESPATH+'HomePage/HomePosts.js',()=>{HOMEPOSTS()});
+    
+        FLOATINGBUTTON('','','forestgreen',WHITEPOSTICON,()=>{
+
+            EXTERNALJS(FILESPATH+'UserPostPage/UserPostsPage.js',()=>{USERPOSTSPAGE()});  
+
+        });
+
+    });
+
+};
