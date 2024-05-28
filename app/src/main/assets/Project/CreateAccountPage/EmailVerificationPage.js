@@ -96,7 +96,7 @@ export const EMAILVERFICATIONPAGE=()=>{
     
             );
     
-        })
+        });
     
         CLICKED('.brown',()=>{
     
@@ -104,11 +104,9 @@ export const EMAILVERFICATIONPAGE=()=>{
     
             CREATEACCOUNTPAGE();
     
-        })
+        });
 
-    })
-
- 
+    });
 
 }
 
