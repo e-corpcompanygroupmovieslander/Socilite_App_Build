@@ -26,7 +26,7 @@ export const USERPROFILEPHOTO=()=>{
 
     const SelectedImage=document.querySelector('.SelectedImage');
 
-    FILES('.PostImageSelection',(dat)=>{
+    FILES('.PostImageSelection',(data)=>{
 
         STRINGCOMPRESSOR(data.Base64,(info)=>{
 
