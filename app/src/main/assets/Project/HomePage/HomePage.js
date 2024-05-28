@@ -15,7 +15,16 @@ export const HOMEPAGE=()=>{
                 <img class='ProfilePicture' src='${data.UserPhoto}'/>
 
             `,
-            ``,'HomeDiv'
+            `
+                <div class='HomeDiv'></div>
+
+                <button class='FloatPost'>
+
+                    <img  src='${WHITEICONS}post.png'/>
+                
+                </button>
+            
+            `,''
         );
 
         HOMEPOSTSPAGE();

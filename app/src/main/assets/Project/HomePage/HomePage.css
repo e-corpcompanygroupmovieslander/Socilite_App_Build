@@ -16,6 +16,15 @@
     border-radius: 5px;
 }
 
+.HomeDiv{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+}
+
 .PostDiv{
     position: relative;
     width: 95%;
@@ -102,4 +111,16 @@
     background: transparent;
     border: none;
     display: inline-flex;   
+}
+
+.FloatPost{
+    position: fixed;
+    background: forestgreen;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    bottom: 1%;
+    right: 3%;
+    left: auto;
+    display: inline-flex;
 }
