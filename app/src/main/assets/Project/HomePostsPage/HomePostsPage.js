@@ -1,9 +1,8 @@
 export const HOMEPOSTSPAGE=()=>{
-
+    
     DECLARATION('.HomeDiv',(ELEMENT)=>{
 
         CLEAR(ELEMENT);
-
 
         GETINDEXED('Socilite','Posts',(data)=>{
 

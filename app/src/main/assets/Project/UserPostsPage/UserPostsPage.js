@@ -6,6 +6,8 @@ import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
 export const USERPOSTSPAGE=()=>{
 
+    REMOVESTORE('','SelectedImage');
+
     BACKHEADERWIDGET(()=>{HOMEPAGE()},
         `
             <h1 id='CreatePost' class='Post'>Post</h1>
