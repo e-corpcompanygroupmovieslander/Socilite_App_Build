@@ -1,4 +1,7 @@
+import { HOMEPOSTSPAGE } from "../HomePostsPage/HomePostsPage.js";
+
 export const HOMEPAGE=()=>{
+
 
     DEJSON('local','UserData',(data)=>{
 
@@ -11,13 +14,11 @@ export const HOMEPAGE=()=>{
 
                 <img class='ProfilePicture' src='${data.UserPhoto}'/>
 
-            
-    
-            
             `,
-            `
-            `
+            ``,'HomeDiv'
         );
+
+        HOMEPOSTSPAGE();
 
     });
 
