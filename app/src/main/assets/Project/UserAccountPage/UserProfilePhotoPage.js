@@ -23,7 +23,7 @@ export const USERPROFILEPHOTOPAGE=()=>{
 
                 <br><br>
 
-                <img class='SelectedImage' src='${data.UserPhoto||WHITEICONS+'library.png'}'/>
+                <img class='SelectedImage' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
 
                 <button class='forestgreen'>Update</button>
 
