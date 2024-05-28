@@ -29,7 +29,7 @@ export const USERPOSTSPAGE=()=>{
 
             <br><br>
 
-            <img class='SelectedImage' src='${WHITEICONS}library.png'/>
+            <img class='SelectedImage' src='${BLACKICONS}image.png'/>
 
             <br><br>
 

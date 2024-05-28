@@ -18,7 +18,7 @@ export const HOMEPOSTSPAGE=()=>{
     
                     IMG.classList.add('PostImage');
 
-                    IMG.src=element.PostedImage||WHITEICONS+'profile.png';
+                    IMG.src=element.PostedImage||BLACKICONS+'image.png';
 
                     ADD(DIV,IMG);
 
@@ -26,7 +26,7 @@ export const HOMEPOSTSPAGE=()=>{
     
                     USERIMG.classList.add('PostedImage');
 
-                    USERIMG.src=element.PostersImage||WHITEICONS+'profile.png';
+                    USERIMG.src=element.PostersImage||BLACKICONS+'image.png';
 
                     ADD(DIV,USERIMG);
 

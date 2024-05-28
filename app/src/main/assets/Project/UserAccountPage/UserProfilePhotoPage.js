@@ -19,7 +19,6 @@ export const USERPROFILEPHOTOPAGE=()=>{
 
             `
 
-
                 <input class='PostImageSelection' type='file' accept='image/*' />
 
                 <br><br>
