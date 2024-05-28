@@ -19,7 +19,7 @@
 .PostDiv{
     position: relative;
     width: 95%;
-    height: 70%;
+    height: 95%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     border-radius: 10px;
@@ -31,7 +31,7 @@
 .PostImage{
     position: absolute;
     width: 100%;
-    height: 70%;
+    height: 60%;
     top: 13%;
 }
 
@@ -48,7 +48,58 @@
     position: absolute;
     font-size: 16px;
     top: 1%; 
-    left: 15%;
+    left: 16%;
     border-radius: 50px; 
     margin-top: 0.5rem; 
+}
+
+.UserLocation{
+    position: absolute;
+    font-size: 16px;
+    top: 5%; 
+    left: 16%;
+    border-radius: 50px; 
+    margin-top: 0.7rem;  
+    color: teal;
+}
+
+.UserTime{
+    position: absolute;
+    font-size: 16px;
+    top: 1%; 
+    right: 1%;
+    border-radius: 50px; 
+    margin-top: 0.5rem; 
+    color: orange;
+}
+
+.OptionsDiv{
+    position: absolute;
+    font-size: 16px;
+    top: auto; 
+    width: 95%;
+    left: 2%;
+    bottom: 1%; 
+    right: 1%;
+    height: 50px;
+    margin-top: 0.5rem; 
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    display: inline-flex;
+}
+
+.UserPosterDescription{
+    position: absolute;
+    font-size: 16px;
+    top: auto; 
+    width: 95%;
+    height:90px ;
+    left: 2%;
+    bottom: 8%; 
+    right: 1%;
+    margin-top: 0.5rem; 
+    background: transparent;
+    border: none;
+    display: inline-flex;   
 }
