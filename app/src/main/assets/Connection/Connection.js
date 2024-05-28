@@ -1,8 +1,8 @@
-import { LOGINPAGE } from "../Project/LoginPage/LoginPage.js"
+import { AUTOLOGINPAGE } from "../Project/AutoLoginPage/AutoLoginPage.js"
 
 export const CONNECTION=()=>{
 
-    LOGINPAGE()
+    AUTOLOGINPAGE()
     
 
 }
