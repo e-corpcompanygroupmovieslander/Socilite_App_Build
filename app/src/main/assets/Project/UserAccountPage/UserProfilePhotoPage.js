@@ -3,7 +3,6 @@ import { CREATEPOTSAPI, UPDATEUSERAPI } from "../Apis/Apis.js";
 import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
 import { AUTOUPDATEUSER } from "../AutoLoginPage/AutoUpdateUser.js";
 
-
 export const USERPROFILEPHOTOPAGE=()=>{
 
     REMOVESTORE('','SelectedImage');

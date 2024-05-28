@@ -1,5 +1,6 @@
 import { CONNECTION } from "../../Connection/Connection.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { USERPROFILEDETAILS } from "./UserDetailsPage.js";
 import { USERPOSTS } from "./UserPosts.js";
 import { USERPROFILEPHOTOPAGE } from "./UserProfilePhotoPage.js";
 
@@ -30,7 +31,7 @@ export const USERACCOUNTPAGE=()=>{
 
                             <img src='${WHITEICONS}user.png'/>
 
-                            <img src='${WHITEICONS}review.png'/>
+                            <img id='UpdateProfiles' src='${WHITEICONS}review.png'/>
 
                             <img src='${WHITEICONS}location.png'/>
                             
@@ -60,8 +61,9 @@ export const USERACCOUNTPAGE=()=>{
 
     })
 
-    CLICKED('.UserPhoto',()=>{USERPROFILEPHOTOPAGE()})
+    CLICKED('.UserPhoto',()=>{USERPROFILEPHOTOPAGE()});
 
+    CLICKED('#UpdateProfiles',()=>{USERPROFILEDETAILS()})
 
     USERPOSTS();
 
