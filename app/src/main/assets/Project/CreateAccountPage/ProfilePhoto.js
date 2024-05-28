@@ -30,9 +30,9 @@ export const USERPROFILEPHOTO=()=>{
 
         STRINGCOMPRESSOR(data.Base64,(info)=>{
 
-            SelectedImage.src=`data:${data.type};base64,${info}`
+            SelectedImage.src=`data:${data.Type};base64,${info}`
 
-            IMAGEDATA=`data:${data.type};base64,${info}`;
+            IMAGEDATA=`data:${data.Type};base64,${info}`;
 
             STORE('','SelectedImage','ON')
 

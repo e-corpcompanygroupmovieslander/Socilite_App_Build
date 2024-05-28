@@ -47,11 +47,15 @@ export const USERPOSTSPAGE=()=>{
 
     FILES('.PostImageSelection',(data)=>{
 
+        console.log(data)
+
         STRINGCOMPRESSOR(data.Base64,(info)=>{
 
-            SelectedImage.src=`data:${data.type};base64,${info}`
+            SelectedImage.src=`data:${data.Type};base64,${info}`
 
-            IMAGEDATA=`data:${data.type};base64,${info}`;
+            IMAGEDATA=`data:${data.Type};base64,${info}`;
+
+            console.log(IMAGEDATA)
 
             STORE('','SelectedImage','ON')
 
