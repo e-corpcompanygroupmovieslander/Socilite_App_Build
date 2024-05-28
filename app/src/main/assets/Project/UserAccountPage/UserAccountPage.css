@@ -22,12 +22,14 @@
 }
 
 .UsedOptionsDiv{
+    top: auto;
     position: absolute;
     bottom: 0;
     border-top: 1px solid #cdcdcd20;
     border-radius: 0px;
     display: inline-flex;
-    height: 50px;
+    height: 45px;
+    background: transparent;
 }
 
 .Friends{
@@ -41,7 +43,7 @@
 
 .UserOptionsDiv{
     position: absolute;
-    top: 46%;
+    top: 43%;
     width: 95%;
     left: 2%;
     border-radius: 50px;
