@@ -5,7 +5,8 @@ APPNAME('Socilite');
 NETWORKSTATE((data)=>{
 
     
+    MODULE('../../Connection/Connection.js','CONNECTION',(CONNECTION) => {CONNECTION()});
+
     
-   
 })
 
