@@ -14,11 +14,7 @@ export const USERPROFILEPHOTO=()=>{
 
         <input class='PostImageSelection' type='file' accept='image/*' />
 
-            <br><br>
-
         <img class='SelectedImage' src='${WHITEICONS}library.png'/>
-
-        <br><br>
 
         <button class='forestgreen'> Update </button>
 
