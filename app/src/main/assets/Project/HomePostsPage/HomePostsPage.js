@@ -62,8 +62,14 @@ export const HOMEPOSTSPAGE=()=>{
                     MINIDIV.classList.add('OptionsDiv');
 
                     const LIKEICON=document.createElement('img');
-    
-                    LIKEICON.src=WHITEICONS+'heart.png';
+
+                    LIKEICON.src=WHITEICONS+'unheart.png';
+
+                    if (element.PeopleLiked.includes(localStorage.getItem('User'))) {
+                       
+                        LIKEICON.src=WHITEICONS+'heart.png';
+                        
+                    }
 
                     ADD(MINIDIV,LIKEICON);
 
@@ -91,7 +97,7 @@ export const HOMEPOSTSPAGE=()=>{
 
                     ADD(ELEMENT,DIV);
     
-                    console.log(element);
+                    //console.log(element);
     
                 });
     
