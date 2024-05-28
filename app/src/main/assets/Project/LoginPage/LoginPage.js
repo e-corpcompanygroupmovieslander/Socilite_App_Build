@@ -10,7 +10,7 @@ export const LOGINPAGE=()=>{
 
         <button class='forestgreen'>Sign In</button>
     
-        <button class='blue'>Create Account In</button>
+        <button class='blue'>Create Account </button>
 
     `)
 
