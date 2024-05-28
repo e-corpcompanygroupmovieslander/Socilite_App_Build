@@ -1,5 +1,4 @@
 import { EMAILVERFICATIONPAGE } from "../CreateAccountPage/EmailVerificationPage.js";
-import { USERPROFILEPHOTO } from "../CreateAccountPage/ProfilePhoto.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 import { LOGINPAGE } from "../LoginPage/LoginPage.js"
 
@@ -13,7 +12,7 @@ export const AUTOLOGINPAGE=()=>{
 
             ()=>EMAILVERFICATIONPAGE(),
 
-            ()=>USERPROFILEPHOTO()
+            ()=>LOGINPAGE()
 
         ),
 
