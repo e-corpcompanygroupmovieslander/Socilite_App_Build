@@ -9,7 +9,7 @@ export const FULLUSERDATA=()=>{
 
         BACKHEADERWIDGET(() => { USERACCOUNTPAGE() },
             `
-                <h1 class='Sections'>Edit</h1>
+                <h1 class='Sections'>Biography</h1>
             `,
             `
                 <img  class='UserFullPhoto' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
