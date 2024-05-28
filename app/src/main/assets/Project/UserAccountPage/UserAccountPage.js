@@ -1,3 +1,4 @@
+import { CONNECTION } from "../../Connection/Connection.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 import { USERPOSTS } from "./UserPosts.js";
 
@@ -7,7 +8,7 @@ export const USERACCOUNTPAGE=()=>{
 
         BACKHEADERWIDGET(()=>{HOMEPAGE()},
             `
-                <h1 class='Sections'>ProFile</h1>
+                <img id='Settings' class='Sections' src='${WHITEICONS}setting.png'/>
 
             `
             ,
@@ -59,5 +60,13 @@ export const USERACCOUNTPAGE=()=>{
     })
 
     USERPOSTS();
+
+    CLICKED('#Settings',()=>{
+
+        REMOVESTORE('local','User');
+        
+        CONNECTION()
+
+    })
 
 };
