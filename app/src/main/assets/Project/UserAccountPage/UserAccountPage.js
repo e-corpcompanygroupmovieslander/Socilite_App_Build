@@ -1,6 +1,7 @@
 import { CONNECTION } from "../../Connection/Connection.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 import { USERPOSTS } from "./UserPosts.js";
+import { USERPROFILEPHOTOPAGE } from "./UserProfilePhotoPage.js";
 
 export const USERACCOUNTPAGE=()=>{
 
@@ -17,7 +18,7 @@ export const USERACCOUNTPAGE=()=>{
 
                 <div class='View'>
 
-                    <img class='UserPhoto' src='${data.UserPhoto}'/>
+                    <img class='UserPhoto' src='${data.UserPhoto||WHITEICONS+'profile.png'}'/>
 
                     <div class='UserDetailsDiv'>
 
@@ -58,6 +59,9 @@ export const USERACCOUNTPAGE=()=>{
         );
 
     })
+
+    CLICKED('.UserPhoto',()=>{USERPROFILEPHOTOPAGE()})
+
 
     USERPOSTS();
 
