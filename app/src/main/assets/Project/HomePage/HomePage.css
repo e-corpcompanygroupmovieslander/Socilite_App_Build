@@ -105,12 +105,13 @@
     width: 95%;
     height:90px ;
     left: 2%;
-    bottom: 8%; 
+    bottom: 4%; 
     right: 1%;
     margin-top: 0.5rem; 
     background: transparent;
     border: none;
     display: inline-flex;   
+    padding: 2%;
 }
 
 .FloatPost{

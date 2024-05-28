@@ -1,4 +1,5 @@
 import { HOMEPOSTSPAGE } from "../HomePostsPage/HomePostsPage.js";
+import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 import { USERPOSTSPAGE } from "../UserPostsPage/UserPostsPage.js";
 
 export const HOMEPAGE=()=>{
@@ -12,7 +13,7 @@ export const HOMEPAGE=()=>{
 
                 <input type='search' class='HomeSearch' placeholder='Enter Your Search' />
 
-                <img class='ProfilePicture' src='${data.UserPhoto}'/>
+                <img class='ProfilePicture' src='${data.UserPhoto||WHITEICONS+'profile.png'}'/>
 
             `,
             `
@@ -29,7 +30,9 @@ export const HOMEPAGE=()=>{
 
         HOMEPOSTSPAGE();
 
-        CLICKED('.FloatPost',()=>{USERPOSTSPAGE()})
+        CLICKED('.FloatPost',()=>{USERPOSTSPAGE()});
+
+        CLICKED('.ProfilePicture',()=>{USERACCOUNTPAGE()});
 
     });
 
