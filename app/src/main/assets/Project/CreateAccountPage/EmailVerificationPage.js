@@ -1,6 +1,6 @@
 import { CREATEACCOUNTAPI, USERSAPI } from "../Apis/Apis.js";
-import { HOMEPAGE } from "../HomePage/HomePage.js";
 import { CREATEACCOUNTPAGE } from "./CreateAccountPage.js";
+import { USERPROFILEPHOTO } from "./ProfilePhoto.js";
 
 export const EMAILVERFICATIONPAGE=()=>{
 
@@ -50,7 +50,7 @@ export const EMAILVERFICATIONPAGE=()=>{
                     
                                         POSTPACKAGE(CREATEACCOUNTAPI,'no-cors',data,(create)=>{
                     
-                                            HOMEPAGE();
+                                            USERPROFILEPHOTO();
                     
                                         });
                     
