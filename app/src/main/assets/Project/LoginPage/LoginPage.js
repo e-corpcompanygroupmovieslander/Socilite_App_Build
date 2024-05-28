@@ -1,4 +1,5 @@
 import { USERSAPI } from "../Apis/Apis.js";
+import { CREATEACCOUNTPAGE } from "../CreateAccountPage/CreateAccountPage.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 
 export const LOGINPAGE=()=>{
@@ -18,7 +19,7 @@ export const LOGINPAGE=()=>{
         <button class='blue'>Create Account </button>
 
     `);
-
+    
     const Email=document.querySelector('.Email');
     const Password=document.querySelector('.Password');
     const Button=document.querySelector('.forestgreen');
@@ -123,5 +124,6 @@ export const LOGINPAGE=()=>{
         );
 
     });
-
+    
+    CLICKED('.blue',()=>{CREATEACCOUNTPAGE()})
 }

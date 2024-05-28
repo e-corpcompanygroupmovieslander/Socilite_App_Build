@@ -64,6 +64,8 @@ export const USERACCOUNTPAGE=()=>{
     CLICKED('#Settings',()=>{
 
         REMOVESTORE('local','User');
+
+        REMOVESTORE('local','UserData');
         
         CONNECTION()
 
