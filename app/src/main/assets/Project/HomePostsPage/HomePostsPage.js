@@ -98,8 +98,6 @@ export const HOMEPOSTSPAGE=()=>{
 
                     ADD(ELEMENT,DIV);
     
-                   console.log(element);
-    
                 });
     
             });
