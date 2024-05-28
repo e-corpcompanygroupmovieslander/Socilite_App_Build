@@ -7,7 +7,7 @@ export const HOMEPOSTSPAGE=()=>{
         GETINDEXED('Socilite','Posts',(data)=>{
 
             REDUX(data,(Element)=>{
-    
+
                 REDUX(Element.Posts.reverse(),(element)=>{
     
                     const DIV=document.createElement('div');
