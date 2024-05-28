@@ -2,7 +2,6 @@ import { HOMEPOSTSPAGE } from "../HomePostsPage/HomePostsPage.js";
 
 export const HOMEPAGE=()=>{
 
-
     DEJSON('local','UserData',(data)=>{
 
         HEADERWIDGET(
