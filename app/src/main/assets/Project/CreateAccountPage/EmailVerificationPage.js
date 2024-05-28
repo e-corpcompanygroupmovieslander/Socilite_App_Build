@@ -50,6 +50,8 @@ export const EMAILVERFICATIONPAGE=()=>{
                     
                                         POSTPACKAGE(CREATEACCOUNTAPI,'no-cors',data,(create)=>{
                     
+                                            STORE('local','UserData',data.UserID);
+
                                             USERPROFILEPHOTO();
                     
                                         });
