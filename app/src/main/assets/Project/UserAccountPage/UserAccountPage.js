@@ -36,9 +36,9 @@ export const USERACCOUNTPAGE=()=>{
 
                         <div class='UsedOptionsDiv'>
 
-                            <h1 class='Friends'>Posts  <br> ${data.UserUploads}</h1>
+                            <h1 class='Friends'>Posts  <br> ${data.UserUploads||0}</h1>
                         
-                            <h1 class='Friends'>Friends  <br> ${data.UserFriends.length}</h1>
+                            <h1 class='Friends'>Friends  <br> ${data.UserFriends.length||0}</h1>
                         
                         </div>
                     
