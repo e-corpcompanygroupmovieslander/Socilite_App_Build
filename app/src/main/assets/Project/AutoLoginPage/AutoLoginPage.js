@@ -1,3 +1,4 @@
+import { EMAILVERFICATIONPAGE } from "../CreateAccountPage/EmailVerificationPage.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 import { LOGINPAGE } from "../LoginPage/LoginPage.js"
 
@@ -7,7 +8,13 @@ export const AUTOLOGINPAGE=()=>{
 
         ()=>HOMEPAGE(),
 
-        ()=>LOGINPAGE()
+        ()=>CONDITION(!localStorage.getItem('User') && localStorage.getItem('UserData') ,
+
+            ()=>EMAILVERFICATIONPAGE(),
+
+            ()=>LOGINPAGE()
+
+        ),
 
     );
 
