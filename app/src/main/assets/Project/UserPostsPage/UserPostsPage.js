@@ -64,6 +64,8 @@ export const USERPOSTSPAGE=()=>{
         DEJSON('local','UserData',(data)=>{
 
             const USER={
+                "PostersName":data.UserName,
+                "PostersEmail":data.UserEmail,
                 "Description":Description.value,
                 "PostsLocation":Location.value,
                 "PostTitle":Tags.value,
