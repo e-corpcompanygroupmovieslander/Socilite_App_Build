@@ -19,7 +19,7 @@ export const HOMEPAGE=()=>{
 
                 <input type='search' class='HomeSearch' placeholder='Enter Your Search' />
 
-                <img class='ProfilePicture' src='${data.UserPhoto||WHITEICONS+'profile.png'}'/>
+                <img class='ProfilePicture' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
 
             `,
             `

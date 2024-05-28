@@ -16,7 +16,7 @@ export const USERPOSTS=()=>{
     
                         IMG.classList.add('PosterMyImage');
     
-                        IMG.src=element.PostedImage||WHITEICONS+'profile.png';
+                        IMG.src=element.PostedImage||BLACKICONS+'image.png';
     
                         ADD(ELEMENT,IMG); 
     

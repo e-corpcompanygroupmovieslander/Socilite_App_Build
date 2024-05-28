@@ -18,7 +18,7 @@ export const USERACCOUNTPAGE=()=>{
 
                 <div class='View'>
 
-                    <img class='UserPhoto' src='${data.UserPhoto||WHITEICONS+'profile.png'}'/>
+                    <img class='UserPhoto' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
 
                     <div class='UserDetailsDiv'>
 
