@@ -3,32 +3,38 @@ import { USERSAPI } from "../Apis/Apis.js";
 
 export const AUTOUPDATEUSER=()=>{
 
-    GETPACKAGE(USERSAPI,'cors',(data)=>{
+    CONDITION(localStorage.getItem('NetWork'),
 
-        FINDER(data,'UserID',localStorage.getItem('User'),(user)=>{
+        ()=>GETPACKAGE(USERSAPI,'cors',(data)=>{
 
-            CONDITION(user.UserID === localStorage.getItem('User'),
-
-                ()=>JSONIFICATION(user,(mydata)=>{
-
-                    STORE('local','UserData',mydata);  
-
-                }),
-
-                ()=>CHECK(localStorage.getItem('User'),(result)=>{
-
-                    REMOVESTORE('local','User');
-
-                    REMOVESTORE('local','UserData');
-                    
-                    CONNECTION();
+            FINDER(data,'UserID',localStorage.getItem('User'),(user)=>{
     
-                }),
+                CONDITION(user.UserID === localStorage.getItem('User'),
+    
+                    ()=>JSONIFICATION(user,(mydata)=>{
+    
+                        STORE('local','UserData',mydata);  
+    
+                    }),
+    
+                    ()=>CHECK(localStorage.getItem('User'),(result)=>{
+    
+                        REMOVESTORE('local','User');
+    
+                        REMOVESTORE('local','UserData');
+                        
+                        CONNECTION();
+        
+                    }),
+    
+                );
+    
+            });
+    
+        }),
 
-            );
+        ()=>console.log('User Back Up')
 
-        });
+    );
 
-    })
-
-}
+};

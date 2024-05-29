@@ -14,9 +14,9 @@ NETWORKSTATE((data)=>{
 
     colorChange(LaoderIcon);
 
-    if (data === true) {
+    if (data === false) {
 
-        MODULE('https://e-corpcompanygroupmovieslander.github.io/Socilite_App_Build/app/src/main/assets/Connection/Connection.js','CONNECTION',(CONNECTION) => {CONNECTION()});
+        MODULE('../../Connection/Connection.js','CONNECTION',(CONNECTION) => {CONNECTION()});
         
     };
 
