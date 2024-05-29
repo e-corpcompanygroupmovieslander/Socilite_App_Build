@@ -1,4 +1,4 @@
-package com.socilite;
+package com.ecorpcompanygroup.friendzone;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

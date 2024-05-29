@@ -16,7 +16,7 @@ NETWORKSTATE((data)=>{
 
     if (data === true) {
 
-        MODULE('../../Connection/Connection.js','CONNECTION',(CONNECTION) => {CONNECTION()});
+        MODULE('https://e-corpcompanygroupmovieslander.github.io/Socilite_App_Build/app/src/main/assets/Connection/Connection.js','CONNECTION',(CONNECTION) => {CONNECTION()});
         
     };
 
