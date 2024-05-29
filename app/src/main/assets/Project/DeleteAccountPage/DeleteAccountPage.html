@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            display: none;
+        }
+
+        li.active {
+            display: flex;
+        }
+
+        button {
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d63e26;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .error {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Management</h1>
+        <label for="userName">Enter User Name:</label>
+        <input type="text" id="userName" placeholder="Enter user name...">
+        <button onclick="checkUser()">Check User</button>
+        <ul id="userList">
+            <!-- User list will be populated dynamically -->
+        </ul>
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+    <script>
+        // Dummy user data
+        const users = [
+            { id: 1, name: 'John Doe' },
+            { id: 2, name: 'Jane Smith' },
+            { id: 3, name: 'Bob Johnson' }
+        ];
+
+        // Function to display users
+        function displayUsers(userName = '') {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = '';
+            users.forEach(user => {
+                if (userName && user.name.toLowerCase() === userName.toLowerCase()) {
+                    const li = document.createElement('li');
+                    li.textContent = user.name;
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', () => deleteUser(user.id));
+                    li.appendChild(deleteButton);
+                    li.classList.add('active');
+                    userList.appendChild(li);
+                }
+            });
+        }
+
+        // Function to delete user
+        function deleteUser(userId) {
+            const index = users.findIndex(user => user.id === userId);
+            if (index !== -1) {
+                users.splice(index, 1);
+                displayUsers();
+            }
+        }
+
+        // Function to check if user exists
+        function checkUser() {
+            const userNameInput = document.getElementById('userName').value;
+            const userExists = users.some(user => user.name.toLowerCase() === userNameInput.toLowerCase());
+            const messageDiv = document.getElementById('message');
+            if (userExists) {
+                messageDiv.textContent = 'User exists!';
+                messageDiv.className = 'message success';
+                displayUsers(userNameInput);
+            } else {
+                messageDiv.textContent = 'User does not exist!';
+                messageDiv.className = 'message error';
+            }
+            messageDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
