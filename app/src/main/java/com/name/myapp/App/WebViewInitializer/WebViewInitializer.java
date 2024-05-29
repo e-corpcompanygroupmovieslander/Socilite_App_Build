@@ -1,4 +1,4 @@
-package com.ecorpcompanygroup.friendzone;
+package com.socilite;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

@@ -1,4 +1,4 @@
-package com.ecorpcompanygroup.friendzone;
+package com.socilite;
 
 import android.content.Intent;
 import android.net.Uri;

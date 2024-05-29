@@ -1,4 +1,4 @@
-package com.ecorpcompanygroup.friendzone;
+package com.socilite;
 
 import android.content.Context;
 import java.io.File;
