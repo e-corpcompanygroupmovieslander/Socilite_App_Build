@@ -1,4 +1,5 @@
 import { CREATEPOTSAPI, UPDATEUSERAPI } from "../Apis/Apis.js";
+import { IMAGEPICKER } from "../AppModules/FilesPicker.js";
 import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
 import { AUTOUPDATEUSER } from "../AutoLoginPage/AutoUpdateUser.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
@@ -42,26 +43,12 @@ export const USERPOSTSPAGE=()=>{
     const Tags=document.querySelector('.Tags');
 
     let IMAGEDATA;
+    
+    IMAGEPICKER('.PostImageSelection','.SelectedImage',(data)=>{
 
-    const SelectedImage=document.querySelector('.SelectedImage');
+        IMAGEDATA=data;
 
-    FILES('.PostImageSelection',(data)=>{
-
-        console.log(data)
-
-        STRINGCOMPRESSOR(data.Base64,(info)=>{
-
-            SelectedImage.src=`data:${data.Type};base64,${info}`
-
-            IMAGEDATA=`data:${data.Type};base64,${info}`;
-
-            console.log(IMAGEDATA)
-
-            STORE('','SelectedImage','ON')
-
-        });
-
-    });
+    })
 
     CLICKED('#CreatePost',()=>{
 

@@ -14,10 +14,11 @@ NETWORKSTATE((data)=>{
 
     colorChange(LaoderIcon);
 
-    if (data === false) {
+    if (data === true) {
 
         MODULE('../../Connection/Connection.js','CONNECTION',(CONNECTION) => {CONNECTION()});
         
     };
 
 });
+
