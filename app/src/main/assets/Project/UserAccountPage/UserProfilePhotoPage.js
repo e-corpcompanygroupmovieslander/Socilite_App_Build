@@ -36,12 +36,15 @@ export const USERPROFILEPHOTOPAGE=()=>{
 
         let IMAGEDATA;
 
-    
         IMAGEPICKER('.PostImageSelection','.SelectedImage',(data)=>{
+
+            STORE('','SelectedImage','ON');
     
             IMAGEDATA=data;
     
         });
+
+        const SelectedImage=document.querySelector('.SelectedImage');
     
         CLICKED('.forestgreen',()=>{
     
