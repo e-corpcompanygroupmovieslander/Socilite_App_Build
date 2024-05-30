@@ -48,7 +48,7 @@ export const USERPOSTSPAGE=()=>{
 
         IMAGEDATA=data;
 
-    })
+    });
 
     CLICKED('#CreatePost',()=>{
 

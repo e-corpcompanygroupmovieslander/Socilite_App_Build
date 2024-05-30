@@ -2,6 +2,7 @@ import { USERACCOUNTPAGE } from "./UserAccountPage.js";
 import { CREATEPOTSAPI, UPDATEUSERAPI } from "../Apis/Apis.js";
 import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
 import { AUTOUPDATEUSER } from "../AutoLoginPage/AutoUpdateUser.js";
+import { IMAGEPICKER } from "../AppModules/FilesPicker.js";
 
 export const USERPROFILEPHOTOPAGE=()=>{
 
@@ -35,19 +36,10 @@ export const USERPROFILEPHOTOPAGE=()=>{
 
         let IMAGEDATA;
 
-        const SelectedImage=document.querySelector('.SelectedImage');
     
-        FILES('.PostImageSelection',(data)=>{
+        IMAGEPICKER('.PostImageSelection','.SelectedImage',(data)=>{
     
-            STRINGCOMPRESSOR(data.Base64,(info)=>{
-    
-                SelectedImage.src=`data:${data.Type};base64,${info}`
-    
-                IMAGEDATA=`data:${data.Type};base64,${info}`;
-    
-                STORE('','SelectedImage','ON')
-    
-            });
+            IMAGEDATA=data;
     
         });
     
