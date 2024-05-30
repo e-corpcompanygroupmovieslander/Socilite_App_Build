@@ -49,7 +49,7 @@ export const IMAGEPICKER = (ELEMENT, ELEMENT1, callback) => {
                     outputDiv.src = base64Data;
                     callback(base64Data);
                 } else {
-                    alert("Image Format Error");
+                    MESSAGE('Image Format Error');
                 }
             };
         };
