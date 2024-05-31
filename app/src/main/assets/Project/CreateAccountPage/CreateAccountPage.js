@@ -53,7 +53,7 @@ export const CREATEACCOUNTPAGE=()=>{
                             function getBrowserVersion() { return navigator.appVersion; }
                         
                             const firstLetter = Email.value.charAt(0).toUpperCase();
-                            const birthYear = Name.value.slice(-4);
+                            const birthYear = Email.value.slice(-4);
                             const randomStringLength = 11 - 1 - 4;
                             const randomString = generateRandomString(randomStringLength);
                             const secretCode = `${firstLetter}${birthYear}${randomString}`.slice(0, 11);

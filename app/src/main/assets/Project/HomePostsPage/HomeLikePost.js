@@ -2,12 +2,8 @@ import { UPDATEPOSTSAPI } from "../Apis/Apis.js";
 import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
 
 export const HOMELIKEPOSTS = (MINIDIV, element) => {
-    const LIKEICON = document.createElement('img');
 
-    // Initialize PeopleLiked as an array if it isn't already
-    if (!Array.isArray(element.PeopleLiked)) {
-        element.PeopleLiked = [];
-    }
+    const LIKEICON = document.createElement('img');
 
     const updateLikeIcon = () => {
         if (element.PeopleLiked.includes(localStorage.getItem('User'))) {
@@ -22,27 +18,48 @@ export const HOMELIKEPOSTS = (MINIDIV, element) => {
     ADD(MINIDIV, LIKEICON);
 
     EVENT(LIKEICON, 'click', () => {
+
         const user = localStorage.getItem('User');
 
         if (element.PeopleLiked.includes(user)) {
-            // Remove user from PeopleLiked array
-            element.PeopleLiked = element.PeopleLiked.filter(u => u !== user);
+            
+            JSONREMOVER(element.PeopleLiked,[user],(data)=>{
+                
+                const USERS={
+                    "UserID":element.UserID,
+                    "PeopleLiked":data
+                }
+
+                POSTPACKAGE(UPDATEPOSTSAPI, 'no-cors', USERS, (info) => {
+
+                    LIKEICON.src = WHITEICONS + 'unheart.png';
+
+                    AUTODOWNLOADPOSTS();
+
+                })
+
+            })
+
         } else {
-            // Add user to PeopleLiked array
-            element.PeopleLiked.push(user);
+
+            JSONADDER(element.PeopleLiked,[user],(data)=>{
+
+                const USERS={
+                    "UserID":element.UserID,
+                    "PeopleLiked":data
+                }
+
+                POSTPACKAGE(UPDATEPOSTSAPI, 'no-cors', USERS, (info) => {
+
+                    AUTODOWNLOADPOSTS();
+
+                    LIKEICON.src = WHITEICONS + 'heart.png';
+
+                })
+
+            })
+          
         }
 
-        // Save the updated post data to session storage
-        sessionStorage.setItem('CurrentPosts', JSON.stringify(element));
-
-        DEJSON('', 'CurrentPosts', (data) => {
-
-            POSTPACKAGE(UPDATEPOSTSAPI, 'no-cors', data, (info) => {
-                AUTODOWNLOADPOSTS();
-            });
-        });
-
-        // Update the icon
-        updateLikeIcon();
     });
 };
