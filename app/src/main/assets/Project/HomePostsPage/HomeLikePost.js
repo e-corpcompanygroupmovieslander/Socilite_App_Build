@@ -36,13 +36,8 @@ export const HOMELIKEPOSTS = (MINIDIV, element) => {
         sessionStorage.setItem('CurrentPosts', JSON.stringify(element));
 
         DEJSON('', 'CurrentPosts', (data) => {
-            // Construct the payload for the update
-            const USERS = {
-                "UserID": data.UserID,
-                "PeopleLiked": data.PeopleLiked
-            };
 
-            POSTPACKAGE(UPDATEPOSTSAPI, 'no-cors', USERS, (info) => {
+            POSTPACKAGE(UPDATEPOSTSAPI, 'no-cors', data, (info) => {
                 AUTODOWNLOADPOSTS();
             });
         });
