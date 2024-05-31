@@ -1,3 +1,4 @@
+import { POSTSAPI } from "../../Module/ImagePicker.js";
 import { AUTODOWNLOADUSERDATA } from "../AutoDownloadPage/AutoDownloadUserData.js";
 import { CHATPAGE } from "../ChatPage/ChatPage.js";
 import { FRIENDSPAGE } from "../FriendsPage/FriendsPage.js";
@@ -25,7 +26,27 @@ export const HOMEPAGE=()=>{
     
         HOMEPOSTS();
     
-        CLICKED('.HomeReload',()=>{HOMEPAGE()});
+        CLICKED('.HomeReload',()=>{HOMEPAGE(),
+
+            GETPACKAGE(POSTSAPI,'cors',(result)=>{
+
+                const USERDATA={
+                    "Name":"Posts",
+                    "Posts":result
+                }
+        
+                if (localStorage.getItem('User')) {
+        
+                    UPDATEINDEXED('Socilite','Posts',USERDATA);
+                    
+                } else {
+                    
+                    STOREINDEXED('Socilite','Posts',USERDATA);
+                }
+        
+            });
+
+        });
 
         CLICKED('.Friends',()=>FRIENDSPAGE());
 
