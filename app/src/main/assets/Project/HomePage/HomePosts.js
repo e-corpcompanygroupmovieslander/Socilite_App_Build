@@ -1,4 +1,5 @@
 import { HOMEPOSTEDDATA } from "../HomePosts/HomePosts.js";
+import { CREATEPOSTPAGE } from "../PostsPage/PostPage.js";
 
 export const HOMEPOSTS=()=>{
 
@@ -9,7 +10,6 @@ export const HOMEPOSTS=()=>{
 
             <div class='Posts'></div>
 
-            
             <button class='FloatButton'>
 
                 <img src='${WHITEICONS}post.png'/>
@@ -21,5 +21,7 @@ export const HOMEPOSTS=()=>{
     })
 
     HOMEPOSTEDDATA();
+
+    CLICKED('.FloatButton',()=>{CREATEPOSTPAGE()})
 
 }
