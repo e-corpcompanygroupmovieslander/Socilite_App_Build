@@ -11,9 +11,9 @@ export const MYFULLPOSTS=()=>{
             `,
             `
 
-            <img class='MyPostedImage' src='${data.PostedImage}'/>
+                <img class='MyPostedImage' src='${data.PostedImage}'/>
 
-            <p>${data.Description}</p>
+                <p>${data.Description}</p>
 
 
             `,
