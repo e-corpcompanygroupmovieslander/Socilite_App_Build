@@ -1,3 +1,4 @@
+import { USERSAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 
 export const FRIENDSPAGE=()=>{
@@ -10,7 +11,11 @@ export const FRIENDSPAGE=()=>{
 
         `,
         `
-            <div class='FreindsDiv'></div>
+            <div class='FreindsDiv'>
+
+                <img id='Loadericon' class='LoadingIcon'src='${WHITEICONS}loading.png'/>
+            
+            </div>
 
             <div class='LocationDiv'>
 
@@ -32,51 +37,51 @@ export const FRIENDSPAGE=()=>{
 
     DECLARATION('.FreindsDiv',(ELEMENT)=>{
 
-        GETINDEXED('Socilite','Posts',(data)=>{
+        GETPACKAGE(USERSAPI,'cors',(data)=>{
 
-            REDUX(data,(Element)=>{
+            CLEAR(ELEMENT);
 
-                REDUX(Element.Posts,(element)=>{
+            SHUFFLE(data,(info)=>{
+
+                REDUX(info,(element)=>{
 
                     const CountryDivHolder=document.createElement('div');
 
                     DISPLAY(CountryDivHolder,`
         
-                        <img src='${element.PostersImage||WHITEICONS+'user.png'}' class='PosterImage'/>
+                        <img src='${element.UserPhoto||WHITEICONS+'user.png'}' class='PosterImage'/>
 
-                        <h1 class='PosterName' >${element.PosterName}</h1>
-    
-                    `)
-        
-                    CountryDivHolder.classList.add('CountryDiv')
-        
+                        <h1 class='PosterName' >${element.UserName}</h1>
+
+                    `);
+
                     EVENT(CountryDivHolder,'click',()=>{
-        
+
                         const LocationDiv=document.querySelector('.LocationDiv');
 
                         const ChooseLocation=document.querySelector('.ChooseLocation');
 
                         STYLED(LocationDiv,'display','block');
 
-                        ChooseLocation.innerHTML=element.PosterName;
-                        
+                        ChooseLocation.innerHTML=element.UserName;
+
                         const CountriesDiv=document.querySelector('.CountriesDiv');
 
                         DISPLAY(CountriesDiv,`
 
-                            <img class='FreindsProfileImage' src='${element.PostedImage}'/>
-                        
+                            <img class='FreindsProfileImage' src='${element.UserPhoto}'/>
+
                             <div class='FriendsDetails'>
 
-                                <h1 class='FriendsName'>${element.PosterName}</h1>
-                            
+                                <h1 class='FriendsName'>${element.UserName}</h1>
+
                                 <div class='FriendsOptions'>
 
                                     <div class='FriendsOptionsHolders'>
 
                                         <img src='${WHITEICONS}group-users.png'/>
 
-                                        <h1 class='FriendsNumber'>0</h1>
+                                        <h1 class='FriendsNumber'>${element.UserFriends.length}</h1>
                                     
                                     </div>
 
@@ -84,7 +89,7 @@ export const FRIENDSPAGE=()=>{
 
                                         <img src='${WHITEICONS}grid.png'/>
 
-                                        <h1 class='FriendsNumber'>0</h1>
+                                        <h1 class='FriendsNumber'>${element.UserUploads||0}</h1>
                                     
                                     </div>
 
@@ -92,12 +97,12 @@ export const FRIENDSPAGE=()=>{
 
                                         <img src='${WHITEICONS}location.png'/>
 
-                                        <h1 class='FriendsNumber'>Mbale</h1>
+                                        <h1 class='FriendsNumber'>${element.UserLocation||''}</h1>
                                     
                                     </div>
-
+                                
                                 </div>
-
+                            
                             </div>
 
                             <div class='ChatOptions'>
@@ -110,11 +115,7 @@ export const FRIENDSPAGE=()=>{
                             
                             </div>
 
-                            <p class='FriendsAbout'>
-
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit earum nostrum reprehenderit quia sequi nemo tempore dignissimos rem blanditiis beatae, incidunt reiciendis temporibus, ut ad dicta dolore sapiente tempora?
-
-                            </p>
+                            <p class='FriendsAbout'>${element.UserDescription||''}</p>
 
                             <div class='ChatOptions'>
 
@@ -130,40 +131,54 @@ export const FRIENDSPAGE=()=>{
 
                         const FriendPostsDiv=document.querySelector('.FriendPostsDiv');
 
-                        CLEAR(FriendPostsDiv);
+                        GETINDEXED('Socilite','Posts',(data)=>{
 
-                        REDUX(Element.Posts,(element)=>{
+                            CLEAR(FriendPostsDiv);
 
-                            const FreindsPosts=document.createElement('div');
+                            REDUX(data,(Element)=>{
 
-                            FreindsPosts.classList.add('FreindsPostsImages')
+                                REDUX(Element.Posts,(Information)=>{
 
-                            DISPLAY(FreindsPosts,`
+                                    if (Information.Poster === element.UserID ) {
 
-                                <img class='FriendsImages' src='${element.PostedImage||BLACKICONS+'images.png'}'/>
-                            
-                            `);
+                                        const FreindsPosts=document.createElement('div');
+        
+                                        FreindsPosts.classList.add('FreindsPostsImages');
+            
+                                        DISPLAY(FreindsPosts,`
+            
+                                            <img class='FriendsImages' src='${Information.PostedImage||BLACKICONS+'images.png'}'/>
+                                        
+                                        `);
+            
+                                        ADD(FriendPostsDiv,FreindsPosts);
+                                        
+                                    };
+        
+                                });
 
-                            ADD(FriendPostsDiv,FreindsPosts);
+                            });
 
-                        })
+                        });
 
                         CLICKED('.closeLocation',()=>{
 
                             STYLED(LocationDiv,'display','none');
                 
                         });
-                        
-                    })
-        
-                    ADD(ELEMENT,CountryDivHolder)
 
-                    console.log(element);
+                    });
+
+                    CountryDivHolder.classList.add('CountryDiv');
+
+                    ADD(ELEMENT,CountryDivHolder);
+
+                    console.log(element)
 
                 });
 
             });
-
+            
         });
 
     });
