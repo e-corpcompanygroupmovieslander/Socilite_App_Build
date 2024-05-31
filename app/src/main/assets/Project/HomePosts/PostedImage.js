@@ -1,6 +1,6 @@
 export const POSTEDIMAGE=(PostDiv,Element)=>{
 
-    console.log(Element)
+   // console.log(Element)
 
     const PosterImage=document.createElement('img');
 
@@ -9,6 +9,5 @@ export const POSTEDIMAGE=(PostDiv,Element)=>{
     PosterImage.src=Element.PostedImage||BLACKICONS+'image.png';
 
     ADD(PostDiv,PosterImage);
-
 
 }

@@ -1,3 +1,4 @@
+import { POSTERSNAME } from "./HomePostName.js";
 import { POSTEDIMAGE } from "./PostedImage.js";
 import { POSTERSIMAGE } from "./PostersImage.js";
 
@@ -18,6 +19,8 @@ export const HOMEPOSTEDDATA=()=>{
                         const PostHeader=document.createElement('header');
 
                             POSTERSIMAGE(PostHeader,Element);
+
+                            POSTERSNAME(PostHeader,Element)
 
                         ADD(HomeDiv,PostHeader);
 

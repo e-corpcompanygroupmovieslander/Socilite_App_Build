@@ -1,7 +1,5 @@
 export const POSTERSIMAGE=(PostHeader,Element)=>{
 
-    console.log(Element)
-
     const PosterImage=document.createElement('img');
 
     PosterImage.classList.add('PosterImage');

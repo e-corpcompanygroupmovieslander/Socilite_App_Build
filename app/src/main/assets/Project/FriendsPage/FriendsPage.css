@@ -1,0 +1,117 @@
+.FriendsInput{
+    width: 90%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+    border: 1px solid #cdcdcd20;
+    padding: 0.5%;
+    border-radius: 10px;
+}
+
+.FreindsDiv{
+    background: transparent;
+    overflow-y: auto;
+}
+
+.FreindsProfileImage{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 2% 30%;
+}
+
+.FriendsDetails{
+    position: relative;
+    width: 95%;
+    height: 100px;
+    border-radius: 20px;
+    left: 2%;
+}
+
+.FriendsName{
+    font-size: 16px;
+}
+
+.FriendsOptions{
+    top: auto;
+    height: 50px;
+    display: inline-flex;
+    bottom: 0;
+    background: transparent;
+}
+
+.FriendsOptionsHolders{
+    position: relative;
+    width: 30%;
+    display: inline-flex;
+    background: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.FriendsNumber{
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 16px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.ChatOptions{
+    position: relative;
+    width: 95%;
+    height: 50px;
+    margin: 2% 2%;
+    border-radius: 5px;
+    display: inline-flex;
+}
+
+.FriendsAbout{
+    width: 95%;
+    left: 2%;
+    text-align: left;
+    font-size: 18px;
+}
+
+.ConnectionButtons{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    width: 150px;
+    height: 40px;
+    display: block;
+}
+
+#Connect{
+    background: forestgreen;
+}
+
+#Disconnect{
+    background: brown;
+}
+
+.FriendPostsDiv{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+
+.FreindsPostsImages{
+    position: relative;
+    width: 30%;
+    height: 180px;
+    margin: 1% 1%;
+    display: inline-table;
+    background: transparent;
+    border-radius: 10px;
+}
+
+.FriendsImages{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

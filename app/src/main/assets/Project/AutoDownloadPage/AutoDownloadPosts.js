@@ -2,22 +2,30 @@ import { POSTSAPI } from "../../Module/ImagePicker.js";
 
 export const  AUTODOWNLOADPOSTS=()=>{
 
-    GETPACKAGE(POSTSAPI,'cors',(result)=>{
+    if (localStorage.getItem('NetWork')) {
 
-        const USERDATA={
-            "Name":"Posts",
-            "Posts":result
-        }
+        GETPACKAGE(POSTSAPI,'cors',(result)=>{
 
-        if (localStorage.getItem('User')) {
+            const USERDATA={
+                "Name":"Posts",
+                "Posts":result
+            }
+    
+            if (localStorage.getItem('User')) {
+    
+                UPDATEINDEXED('Socilite','Posts',USERDATA);
+                
+            } else {
+                
+                STOREINDEXED('Socilite','Posts',USERDATA);
+            }
+    
+        });
+        
+    } else {
+        
+        console.log('Using Offline Copy');
 
-            UPDATEINDEXED('Socilite','Posts',USERDATA);
-            
-        } else {
-            
-            STOREINDEXED('Socilite','Posts',USERDATA);
-        }
-
-    });
+    }
 
 }

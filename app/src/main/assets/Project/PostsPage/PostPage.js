@@ -1,5 +1,6 @@
 import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
+import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
 export const CREATEPOSTPAGE=()=>{
 
@@ -133,9 +134,7 @@ export const CREATEPOSTPAGE=()=>{
 
                         UPDATEINDEXED('Socilite','Posts',USERDATA);
 
-                        HOMEPAGE();
-
-                        console.log(result);
+                        USERACCOUNTPAGE();
 
                     })
 
