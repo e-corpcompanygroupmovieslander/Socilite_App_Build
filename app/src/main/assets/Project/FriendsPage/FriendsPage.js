@@ -199,6 +199,68 @@ export const FRIENDSPAGE=()=>{
 
                         })
 
+                        CLICKED('#Disconnect',()=>{
+
+                            const Connect=document.querySelector('#Disconnect');
+
+                            DEJSON('local','UserData',(usersdata)=>{
+
+                                if (usersdata.UserFriends.includes(element.UserID)) {
+
+                                    LOADER(Connect);
+
+                                    JSONREMOVER(usersdata.UserFriends,[element.UserID],(FriendsList)=>{
+
+                                        const USERSDATAFRIENDS={
+                                            "UserID":localStorage.getItem('User'),
+                                            "UserFriends":FriendsList
+                                        };
+
+                                        POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERSDATAFRIENDS,(date)=>{
+
+                                            GETPACKAGE(USERSAPI,'cors',(data)=>{
+
+                                                FINDER(data,'UserID',localStorage.getItem('User'),(user)=>{
+                                    
+                                                    if (user.UserID === localStorage.getItem('User')) {
+                                                        
+                                                        JSONIFICATION(user,(data)=>{
+                                    
+                                                            STORE('local','UserData',data);
+
+                                                            MESSAGE('Your Now Disconnected From'+element.UserName);
+
+                                                            ORIGIN(Connect,'Connect');
+                                    
+                                                        });
+                                                    
+                                                    }else{
+                                    
+                                                        console.log('not a match')
+                                    
+                                                    };
+                                    
+                                                });
+                                    
+                                            });
+
+                                        });
+
+                                    })
+
+                                    
+                                    
+                                } else {
+
+                                    MESSAGE('Your Already Disconnected With'+element.UserName);
+  
+                                }
+
+                            });
+                            
+
+                        })
+
                         const FriendPostsDiv=document.querySelector('.FriendPostsDiv');
 
                         GETINDEXED('Socilite','Posts',(data)=>{
