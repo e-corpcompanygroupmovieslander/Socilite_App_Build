@@ -1,31 +1,63 @@
+import { IMAGEPICKER } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 
 export const CREATEPOSTPAGE=()=>{
 
+    sessionStorage.clear();
+
     BACKHEADERWIDGET(()=>{HOMEPAGE()},
-    `
-        
-        <img src='${WHITEICONS}g.png'/>
-        
-        <img src='${WHITEICONS}group-users.png'/>
+        `
+            
+            <img src='${WHITEICONS}group-users.png'/>
 
-        <img src='${WHITEICONS}upload.png'/>
+            <img src='${WHITEICONS}location.png'/>
 
-    `,
+            <img class='createUserPost' src='${WHITEICONS}upload.png'/>
 
-    `
-        <textarea  placeholder='Whats On Your Mind'></textarea>
+        `,
 
-        <input type='text' placeholder='Enter Tags' />
+        `
 
-        <input type='text' placeholder='Enter Location'/>
+            <input type='text' placeholder='Enter Tags' />
 
-        <input type='file' accept='image/*' />
+            <textarea id='Description' placeholder='Whats On Your Mind'></textarea>
 
-        <img class='SelectedImage' src='${BLACKICONS}image.png'/>
+            <input class='ImageSelect' type='file' accept='image/*' />
 
-    `,''
+            <img class='SelectedImage' src='${BLACKICONS}image.png'/>
+
+        `,''
 
     );
+
+    let IMAGES;
+
+    IMAGEPICKER('.ImageSelect','.SelectedImage',(data)=>{
+
+        STORE('','SelectedImage','On');
+
+        IMAGES=data;
+
+    });
+
+    CLICKED('.createUserPost',()=>{
+
+        const SelectedImage=document.querySelector('.SelectedImage');
+
+        const Description=document.querySelector('#Description');
+
+        if (Description.value || sessionStorage.getItem('SelectedImage')) {
+
+           
+            
+        } else{
+
+            STYLED(Description,'border','1px solid red');
+            STYLED(SelectedImage,'border','1px solid red');
+
+        }
+
+
+    })
 
 }
