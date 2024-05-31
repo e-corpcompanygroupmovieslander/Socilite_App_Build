@@ -4,9 +4,11 @@ export const USERACCOUNTPAGE=()=>{
 
     DEJSON('local','UserData',(data)=>{
 
+        let FRIENDSNUMBER;
+
         JSONLENGTH(data.UserFriends,(Friends)=>{
 
-            STORE('local','Friends',Friends);
+            FRIENDSNUMBER=Friends;
 
         });
 
@@ -30,7 +32,7 @@ export const USERACCOUNTPAGE=()=>{
 
                             <img src='${WHITEICONS}group-users.png'/>
 
-                            <h1 class='FriendsNumber'>${localStorage.getItem('Friends')}</h1>
+                            <h1 class='FriendsNumber'>${FRIENDSNUMBER||0}</h1>
                         
                         </div>
 
