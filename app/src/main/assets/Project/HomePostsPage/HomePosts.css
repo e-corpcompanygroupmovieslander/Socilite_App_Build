@@ -12,9 +12,12 @@
 
 .PostImage{
     position: absolute;
-    width: 100%;
+    width: 95%;
     height: 60%;
     top: 13%;
+    left: 2%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .PostedImage{
@@ -48,13 +51,15 @@
 
 .UserTime{
     position: absolute;
-    padding: 1.2%;
+    width: 20px;
+    height: 20px;
+    padding: 1%;
     right: 3%;
     top: 5px;
     transform: rotate(180deg);
     background: transparent;
     border-radius: 100px;
-    border: 1px solid #cdcdcd20;
+    border: 1px solid #cdcdcd05;
 
 }
 
