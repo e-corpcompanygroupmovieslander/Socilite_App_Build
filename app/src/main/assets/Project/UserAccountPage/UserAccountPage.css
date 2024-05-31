@@ -89,3 +89,9 @@
     position: absolute;
     width: 50%;
 }
+
+.MyPostedImage{
+    width: 95%;
+    left: 2%;
+    border-radius: 5px;
+}

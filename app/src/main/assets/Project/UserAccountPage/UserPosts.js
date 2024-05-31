@@ -1,3 +1,5 @@
+import { MYFULLPOSTS } from "./MyFullPosts.js";
+
 export const USERPOSTS=()=>{
 
     DECLARATION('.MyPostsDiv',(ELEMENT)=>{
@@ -19,6 +21,18 @@ export const USERPOSTS=()=>{
                         IMG.src=element.PostedImage||BLACKICONS+'image.png';
     
                         ADD(ELEMENT,IMG); 
+
+                        EVENT(IMG,'click',()=>{
+
+                            JSONIFICATION(element,(Posts)=>{
+
+                                STORE('','MyCurrentPosts',Posts);
+
+                                MYFULLPOSTS();
+
+                            })
+
+                        })
     
 
                     }
