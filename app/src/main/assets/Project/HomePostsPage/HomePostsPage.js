@@ -19,6 +19,8 @@ export const HOMEPOSTSPAGE=()=>{
             REDUX(data,(Element)=>{
 
                 REDUX(Element.Posts.reverse(),(element)=>{
+
+                    console.log(element)
     
                     const DIV=document.createElement('div');
     

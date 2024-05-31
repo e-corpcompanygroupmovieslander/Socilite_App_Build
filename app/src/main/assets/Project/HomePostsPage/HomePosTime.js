@@ -1,14 +1,11 @@
 export const HOMEPOSTIME=(DIV,element)=>{
 
-    TIMER(element.PostTime,(time)=>{
-  
-        const USERTIME=document.createElement('h1');
+    const USERTIME=document.createElement('img');
 
-        USERTIME.classList.add('UserTime');
+    USERTIME.classList.add('UserTime');
 
-        USERTIME.innerHTML=time;
+    USERTIME.src=WHITEICONS+'back.png';
 
-        ADD(DIV,USERTIME);
-    })
+    ADD(DIV,USERTIME);
 
 }
