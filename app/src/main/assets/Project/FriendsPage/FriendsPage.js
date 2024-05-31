@@ -59,6 +59,12 @@ export const FRIENDSPAGE=()=>{
 
                     EVENT(CountryDivHolder,'click',()=>{
 
+                        JSONLENGTH(element.UserFriends,(Friends)=>{
+
+                            STORE('','Friends',Friends);
+                
+                        });
+
                         const LocationDiv=document.querySelector('.LocationDiv');
 
                         const ChooseLocation=document.querySelector('.ChooseLocation');
@@ -83,7 +89,7 @@ export const FRIENDSPAGE=()=>{
 
                                         <img src='${WHITEICONS}group-users.png'/>
 
-                                        <h1 class='FriendsNumber'>${element.UserFriends.length}</h1>
+                                        <h1 class='FriendsNumber'>${sessionStorage.getItem('Friends')}</h1>
                                     
                                     </div>
 

@@ -7,8 +7,8 @@ export const USERACCOUNTPAGE=()=>{
         JSONLENGTH(data.UserFriends,(Friends)=>{
 
             STORE('local','Friends',Friends);
-            
-        })
+
+        });
 
         BACKHEADERWIDGET(()=>{HOMEPAGE()},
 
