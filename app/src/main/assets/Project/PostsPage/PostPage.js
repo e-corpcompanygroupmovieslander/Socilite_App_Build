@@ -1,4 +1,4 @@
-import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI, UPDATEUSERAPI } from "../../Module/ImagePicker.js";
+import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI, UPDATEUSERAPI, USERSAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
@@ -105,6 +105,8 @@ export const CREATEPOSTPAGE=()=>{
         const Tags=document.querySelector('.Tags');
         const Description=document.querySelector('#Description');
 
+        const createUserPost=document.querySelector('.createUserPost');
+
         if (Description.value || sessionStorage.getItem('SelectedImage')) {
 
             DEJSON('local','UserData',(data)=>{
@@ -128,7 +130,13 @@ export const CREATEPOSTPAGE=()=>{
                     "UserUploads":++data.UserUploads
                 }
 
-                POSTPACKAGE(UPDATEUSERAPI,'no-cors',()=>{
+                colorChange(createUserPost);
+
+                STYLED(createUserPost,'padding','1%');
+                STYLED(createUserPost,'border-radius','50px');
+
+
+                POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERDATAT,()=>{
 
                     GETPACKAGE(USERSAPI,'cors',(data)=>{
 
@@ -151,7 +159,7 @@ export const CREATEPOSTPAGE=()=>{
                         });
             
                     });
-                    
+
                 })
 
                 POSTPACKAGE(CREATEPOTSAPI,'no-cors',POSTEDDATA,(info)=>{
