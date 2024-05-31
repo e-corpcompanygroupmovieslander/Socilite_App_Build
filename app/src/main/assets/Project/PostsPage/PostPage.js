@@ -64,9 +64,8 @@ export const CREATEPOSTPAGE=()=>{
                 
             }, 2000);
 
-        }
+        };
 
+    });
 
-    })
-
-}
+};
