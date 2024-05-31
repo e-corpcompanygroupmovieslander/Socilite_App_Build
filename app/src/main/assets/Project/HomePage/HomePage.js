@@ -26,7 +26,7 @@ export const HOMEPAGE=()=>{
     
         HOMEPOSTS();
     
-        CLICKED('.HomeReload',()=>{HOMEPAGE(),
+        CLICKED('.HomeReload',()=>{
 
             GETPACKAGE(POSTSAPI,'cors',(result)=>{
 
@@ -38,6 +38,8 @@ export const HOMEPAGE=()=>{
                 if (localStorage.getItem('User')) {
         
                     UPDATEINDEXED('Socilite','Posts',USERDATA);
+
+                    HOMEPAGE();
                     
                 } else {
                     
