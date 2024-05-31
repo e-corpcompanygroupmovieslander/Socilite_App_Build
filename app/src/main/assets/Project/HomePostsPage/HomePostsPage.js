@@ -1,3 +1,13 @@
+import { HOMELIKEPOSTS } from "./HomeLikePost.js";
+import { HOMEPOSTIME } from "./HomePosTime.js";
+import { HOMEPOSTCOMMENT } from "./HomePostComment.js";
+import { HOMEPOSTDESCRIPTION } from "./HomePostDescription.js";
+import { HOMEPOSTLOCATION } from "./HomePostLocation.js";
+import { HOMEPOSTEDIMAGE } from "./HomePostedImage.js";
+import { HOMEPOSTERSIMAGE } from "./HomePostersImage.js";
+import { HOMEPOSTERSUSERNAME } from "./HomePostersUserName.js";
+import { HOMESAVEPOST } from "./HomeSavePost.js";
+
 export const HOMEPOSTSPAGE=()=>{
     
     DECLARATION('.HomeDiv',(ELEMENT)=>{
@@ -14,86 +24,29 @@ export const HOMEPOSTSPAGE=()=>{
     
                     DIV.classList.add('PostDiv');
 
-                    const IMG=document.createElement('img');
-    
-                    IMG.classList.add('PostImage');
+                    HOMEPOSTEDIMAGE(DIV,element)
 
-                    IMG.src=element.PostedImage||BLACKICONS+'image.png';
+                    HOMEPOSTERSIMAGE(DIV,element)
 
-                    ADD(DIV,IMG);
+                    HOMEPOSTERSUSERNAME(DIV,element);
 
-                    const USERIMG=document.createElement('img');
-    
-                    USERIMG.classList.add('PostedImage');
+                    HOMEPOSTLOCATION(DIV,element);
 
-                    USERIMG.src=element.PostersImage||BLACKICONS+'image.png';
-
-                    ADD(DIV,USERIMG);
-
-                    const USERNAME=document.createElement('h1');
-    
-                    USERNAME.classList.add('UserName');
-
-                    USERNAME.innerHTML=element.PostersName;
-
-                    ADD(DIV,USERNAME);
-
-                    const USERLOCATION=document.createElement('h1');
-    
-                    USERLOCATION.classList.add('UserLocation');
-
-                    USERLOCATION.innerHTML=element.PostsLocation||'';
-
-                    ADD(DIV,USERLOCATION);
-
-                    TIMER(element.PostTime,(time)=>{
-  
-                        const USERTIME=document.createElement('h1');
-        
-                        USERTIME.classList.add('UserTime');
-
-                        USERTIME.innerHTML=time;
-
-                        ADD(DIV,USERTIME);
-                    })
+                    HOMEPOSTIME(DIV,element);
 
                     const MINIDIV=document.createElement('div');
     
                     MINIDIV.classList.add('OptionsDiv');
 
-                    const LIKEICON=document.createElement('img');
+                    HOMELIKEPOSTS(MINIDIV,element)
 
-                    LIKEICON.src=WHITEICONS+'unheart.png';
+                    HOMEPOSTCOMMENT(MINIDIV,element);
 
-                    if (element.PeopleLiked.includes(localStorage.getItem('User'))) {
-                       
-                        LIKEICON.src=WHITEICONS+'heart.png';
-                        
-                    }
-
-                    ADD(MINIDIV,LIKEICON);
-
-                    const COMMENTICON=document.createElement('img');
-    
-                    COMMENTICON.src=WHITEICONS+'comment.png';
-
-                    ADD(MINIDIV,COMMENTICON);
-
-                    const SHAREICON=document.createElement('img');
-    
-                    SHAREICON.src=WHITEICONS+'save.png';
-
-                    ADD(MINIDIV,SHAREICON);
+                    HOMESAVEPOST(MINIDIV,element);
 
                     ADD(DIV,MINIDIV);
 
-                    const DESCRIPTION=document.createElement('p');
-        
-                    DESCRIPTION.classList.add('UserPosterDescription');
-
-                    DESCRIPTION.innerHTML=element.Description||'No Story';
-
-                    ADD(DIV,DESCRIPTION);
+                    HOMEPOSTDESCRIPTION(DIV,element);
 
                     ADD(ELEMENT,DIV);
     
