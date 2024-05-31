@@ -41,12 +41,12 @@
 
 .UserLocation{
     position: absolute;
-    font-size: 16px;
+    font-size: 14px;
     top: 5%; 
     left: 18%;
     border-radius: 50px; 
     margin-top: 0.7rem;  
-    color: teal;
+    color: #cdcdcd85;
 }
 
 .UserTime{

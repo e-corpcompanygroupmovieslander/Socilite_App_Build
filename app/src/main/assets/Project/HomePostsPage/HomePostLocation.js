@@ -4,7 +4,11 @@ export const HOMEPOSTLOCATION=(DIV,element)=>{
     
     USERLOCATION.classList.add('UserLocation');
 
-    USERLOCATION.innerHTML=element.PostsLocation||'';
+    TIMER(element.PostTime,(time)=>{
+
+        USERLOCATION.innerHTML=time;
+
+    })
 
     ADD(DIV,USERLOCATION);
 
