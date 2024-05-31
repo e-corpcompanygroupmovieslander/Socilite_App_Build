@@ -9,7 +9,7 @@
 .SelectedImage{
     position: relative;
     width: 95%;
-    height: 50%;
+    height: auto;
     left: 2%;
     border: 1px solid #cdcdcd20;
 
