@@ -9,7 +9,7 @@ export const HOMEPOSTEDDATA=()=>{
 
             REDUX(data,(Posts)=>{
 
-                REDUX(Posts.Posts,(Element)=>{
+                REDUX(Posts.Posts.reverse(),(Element)=>{
 
                     const HomeDiv=document.createElement('div');
 
