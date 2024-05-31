@@ -52,8 +52,17 @@ export const CREATEPOSTPAGE=()=>{
             
         } else{
 
+            VIBRATION(500);
+
             STYLED(Description,'border','1px solid red');
             STYLED(SelectedImage,'border','1px solid red');
+
+            setTimeout(() => {
+
+                STYLED(Description,'border','1px solid #cdcdcd20');
+                STYLED(SelectedImage,'border','1px solid #cdcdcd20');
+                
+            }, 2000);
 
         }
 
