@@ -28,6 +28,14 @@ export const HOMEPAGE=()=>{
     
         CLICKED('.HomeReload',()=>{
 
+            const HomeReload=document.querySelector('.HomeReload');
+
+            STYLED(HomeReload,'padding','2% ');
+
+            STYLED(HomeReload,'border-radius','20px ');
+
+            colorChange(HomeReload);
+
             GETPACKAGE(POSTSAPI,'cors',(result)=>{
 
                 const USERDATA={
