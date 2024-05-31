@@ -1,4 +1,5 @@
 import { CREATEPOTSAPI, UPDATEUSERAPI } from "../Apis/Apis.js";
+import { IMAGEPICKER } from "../AppModules/FilesPicker.js";
 import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
 import { AUTOUPDATEUSER } from "../AutoLoginPage/AutoUpdateUser.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
@@ -24,21 +25,15 @@ export const USERPROFILEPHOTO=()=>{
 
     let IMAGEDATA;
 
-    const SelectedImage=document.querySelector('.SelectedImage');
+    IMAGEPICKER('.PostImageSelection','.SelectedImage',(data)=>{
 
-    FILES('.PostImageSelection',(data)=>{
+        STORE('','SelectedImage','ON');
 
-        STRINGCOMPRESSOR(data.Base64,(info)=>{
-
-            SelectedImage.src=`data:${data.Type};base64,${info}`
-
-            IMAGEDATA=`data:${data.Type};base64,${info}`;
-
-            STORE('','SelectedImage','ON')
-
-        });
+        IMAGEDATA=data;
 
     });
+
+    const SelectedImage=document.querySelector('.SelectedImage');
 
     CLICKED('.forestgreen',()=>{
 
