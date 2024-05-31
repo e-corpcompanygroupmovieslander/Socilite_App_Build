@@ -1,44 +1,42 @@
-import { AUTODOWNLOADPOSTS } from "../AutoLoginPage/AutoDownloadPosts.js";
-import { AUTOUPDATEUSER } from "../AutoLoginPage/AutoUpdateUser.js";
-import { HOMEPOSTSPAGE } from "../HomePostsPage/HomePostsPage.js";
-import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
-import { USERPOSTSPAGE } from "../UserPostsPage/UserPostsPage.js";
+import { HOMEPOSTS } from "./HomePosts.js";
 
 export const HOMEPAGE=()=>{
-
-    AUTOUPDATEUSER();
-
-    AUTODOWNLOADPOSTS();
 
     DEJSON('local','UserData',(data)=>{
 
         HEADERWIDGET(
             `
-            
-                <img  src='${WHITEICONS}chat.png'/>
-
-                <input type='search' class='HomeSearch' placeholder='Enter Your Search' />
-
-                <img class='ProfilePicture' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
-
-            `,
-            `
-                <div class='HomeDiv'></div>
-
-                <button class='FloatPost'>
-
-                    <img src='${WHITEICONS}post.png'/>
-                
-                </button>
-            
-            `,''
+                <img class='HomeReload' src='${WHITEICONS}home.png'/>
+    
+                <img src='${WHITEICONS}comment.png'/>
+    
+                <img src='${WHITEICONS}group-users.png'/>
+    
+                <img class='UserIcon' src='${WHITEICONS}user.png'/>
+    
+            `,``,'HomeDiv'
         );
+    
+        HOMEPOSTS();
+    
+        CLICKED('.HomeReload',()=>{HOMEPAGE()});
 
-        HOMEPOSTSPAGE();
+        DECLARATION('.UserIcon',(ELEMENT)=>{
+ 
+            if (data.UserPhoto) {
 
-        CLICKED('.FloatPost',()=>{USERPOSTSPAGE()});
+                ELEMENT.src=data.UserPhoto
 
-        CLICKED('.ProfilePicture',()=>{USERACCOUNTPAGE()});
+                STYLED(ELEMENT,'border-radius','100px');
+                STYLED(ELEMENT,'width','35px');
+                STYLED(ELEMENT,'height','35px');
+                STYLED(ELEMENT,'border','1px solid whitesmoke');
+                STYLED(ELEMENT,'object-fit','cover');
+                STYLED(ELEMENT,'padding','1px');
+
+            } ;
+
+        });
 
     });
 

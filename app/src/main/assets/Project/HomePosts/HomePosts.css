@@ -1,0 +1,32 @@
+.PostDivHolder{
+    position: relative;
+    background: transparent;
+    width: 98%;
+    height: 80%;
+    margin: 0.5% 0.5%;
+    border-radius: 10px;
+    border: 1px solid #cdcdcd10;
+}
+
+.PosterImage{
+    margin-left: 0.1rem;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+}
+
+.PostedImageHolderDiv{
+    background: transparent;
+    top: 50px;
+    bottom: 50px;
+}
+
+.PostedImage{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 0px;
+    object-fit: cover;
+}

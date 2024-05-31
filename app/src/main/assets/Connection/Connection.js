@@ -1,10 +1,8 @@
-import { AUTODOWNLOADPOSTS } from "../Project/AutoLoginPage/AutoDownloadPosts.js"
-import { AUTOLOGINPAGE } from "../Project/AutoLoginPage/AutoLoginPage.js"
+import { HOMEPAGE } from "../Project/HomePage/HomePage.js"
 
 export const CONNECTION=()=>{
 
-    AUTODOWNLOADPOSTS();
+    HOMEPAGE();
 
-    AUTOLOGINPAGE();
     
 }

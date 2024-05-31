@@ -1,27 +1,22 @@
-.ProfilePicture{
-    margin-right: 1rem;
+.FloatButton{
+    position: fixed;
+    background: forestgreen;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
-    width: 40px;
-    height: 40px;
+    bottom: 2%;
+    right: 2%;
+    left: auto;
+    display: inline-flex;
 }
 
-.HomeSearch{
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    border: 1px solid #cdcdcd20;
-    padding: 2%;
-    border-radius: 5px;
+#HomeDiv{
+    background: transparent;
 }
 
-.HomeDiv{
+.Posts{
     position: absolute;
-    width: 100%;
-    height: auto;
-    top: 0;
-    bottom: 0;
     overflow-y: auto;
+    overflow-x: hidden;
+    background: transparent;
 }
-
