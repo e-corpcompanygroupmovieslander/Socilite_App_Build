@@ -4,80 +4,84 @@ export const USERACCOUNTPAGE=()=>{
 
     DEJSON('local','UserData',(data)=>{
 
-        BACKHEADERWIDGET(()=>{HOMEPAGE()},
+        JSONLENGTH(data.UserFriends,(Friends)=>{
 
-            `
+            BACKHEADERWIDGET(()=>{HOMEPAGE()},
 
-                <img class='Settings' src='${WHITEICONS}setting.png'/>
+                `
 
-            `,
-            `
-                <img class='UserProfilePhoto' src='${data.UserPhoto||BLACKICON+'image.png'}'/>
-                        
-                <div class='FriendsDetails'>
+                    <img class='Settings' src='${WHITEICONS}setting.png'/>
 
-                    <h1 class='FriendsName'>${data.UserName}</h1>
-                
-                    <div class='FriendsOptions'>
+                `,
+                `
+                    <img class='UserProfilePhoto' src='${data.UserPhoto||BLACKICON+'image.png'}'/>
+                            
+                    <div class='FriendsDetails'>
 
-                        <div class='FriendsOptionsHolders'>
+                        <h1 class='FriendsName'>${data.UserName}</h1>
+                    
+                        <div class='FriendsOptions'>
 
-                            <img src='${WHITEICONS}group-users.png'/>
+                            <div class='FriendsOptionsHolders'>
 
-                            <h1 class='FriendsNumber'>${data.UserFriends.length}</h1>
-                        
-                        </div>
+                                <img src='${WHITEICONS}group-users.png'/>
 
-                        <div class='FriendsOptionsHolders'>
+                                <h1 class='FriendsNumber'>${Friends}</h1>
+                            
+                            </div>
 
-                            <img src='${WHITEICONS}grid.png'/>
+                            <div class='FriendsOptionsHolders'>
 
-                            <h1 class='FriendsNumber'>${data.UserUploads||'0'}</h1>
-                        
-                        </div>
+                                <img src='${WHITEICONS}grid.png'/>
 
-                        <div class='FriendsOptionsHolders'>
+                                <h1 class='FriendsNumber'>${data.UserUploads||'0'}</h1>
+                            
+                            </div>
 
-                            <img src='${WHITEICONS}location.png'/>
+                            <div class='FriendsOptionsHolders'>
 
-                            <h1 class='FriendsNumber'>${data.UserLocation||''}</h1>
-                        
+                                <img src='${WHITEICONS}location.png'/>
+
+                                <h1 class='FriendsNumber'>${data.UserLocation||''}</h1>
+                            
+                            </div>
+
                         </div>
 
                     </div>
 
-                </div>
+                    <div class='ChatOptions'>
 
-                <div class='ChatOptions'>
+                        <img src='${WHITEICONS}gmail.png'/>
 
-                    <img src='${WHITEICONS}gmail.png'/>
+                        <img src='${WHITEICONS}comment.png'/>
 
-                    <img src='${WHITEICONS}comment.png'/>
+                        <img src='${WHITEICONS}phone.png'/>
+                    
+                    </div>
 
-                    <img src='${WHITEICONS}phone.png'/>
+                    <p class='FriendsAbout'>
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit earum nostrum reprehenderit quia sequi nemo tempore dignissimos rem blanditiis beatae, incidunt reiciendis temporibus, ut ad dicta dolore sapiente tempora?
+
+                    </p>
+
+                    <div class='ChatOptions'>
+
+                        <button id='Connect' class='ConnectionButtons'>Share Profile</button>
+
+                        <button id='Disconnect' class='ConnectionButtons'>Edit Profile</button>
+                    
+                    </div>
+
+                    <div class='FriendPostsDiv'></div>
                 
-                </div>
 
-                <p class='FriendsAbout'>
+                `,''
 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit earum nostrum reprehenderit quia sequi nemo tempore dignissimos rem blanditiis beatae, incidunt reiciendis temporibus, ut ad dicta dolore sapiente tempora?
+            );
 
-                </p>
-
-                <div class='ChatOptions'>
-
-                    <button id='Connect' class='ConnectionButtons'>Share Profile</button>
-
-                    <button id='Disconnect' class='ConnectionButtons'>Edit Profile</button>
-                
-                </div>
-
-                <div class='FriendPostsDiv'></div>
-            
-
-            `,''
-
-        );
+        });
 
         const UserProfilePhoto=document.querySelector('.UserProfilePhoto');
 

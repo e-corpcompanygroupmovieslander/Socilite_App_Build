@@ -1,4 +1,4 @@
-import { USERSAPI } from "../../Module/ImagePicker.js";
+import { UPDATEUSERAPI, USERSAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 
 export const FRIENDSPAGE=()=>{
@@ -130,6 +130,66 @@ export const FRIENDSPAGE=()=>{
                             <div class='FriendPostsDiv'></div>
 
                         `);
+
+                        CLICKED('#Connect',()=>{
+
+                            const Connect=document.querySelector('#Connect');
+
+                            DEJSON('local','UserData',(usersdata)=>{
+
+                                if (usersdata.UserFriends.includes(element.UserID)) {
+
+                                    MESSAGE('Your Already Connected With'+element.UserName);
+                                    
+                                } else {
+
+                                    LOADER(Connect);
+
+                                    JSONADDER(usersdata.UserFriends,[element.UserID],(FriendsList)=>{
+
+                                        const USERSDATAFRIENDS={
+                                            "UserID":localStorage.getItem('User'),
+                                            "UserFriends":FriendsList
+                                        };
+
+                                        POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERSDATAFRIENDS,(date)=>{
+
+                                            GETPACKAGE(USERSAPI,'cors',(data)=>{
+
+                                                FINDER(data,'UserID',localStorage.getItem('User'),(user)=>{
+                                    
+                                                    if (user.UserID === localStorage.getItem('User')) {
+                                                        
+                                                        JSONIFICATION(user,(data)=>{
+                                    
+                                                            STORE('local','UserData',data);
+
+                                                            MESSAGE('Your Now Connected With'+element.UserName);
+
+                                                            ORIGIN(Connect,'Connect');
+                                    
+                                                        });
+                                                    
+                                                    }else{
+                                    
+                                                        console.log('not a match')
+                                    
+                                                    };
+                                    
+                                                });
+                                    
+                                            });
+
+                                        });
+
+                                    })
+                                    
+                                }
+
+                            });
+                            
+
+                        })
 
                         const FriendPostsDiv=document.querySelector('.FriendPostsDiv');
 
