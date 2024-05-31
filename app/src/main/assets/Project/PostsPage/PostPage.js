@@ -5,7 +5,7 @@ export const CREATEPOSTPAGE=()=>{
     BACKHEADERWIDGET(()=>{HOMEPAGE()},
     `
         
-        <img src='${WHITEICONS}lock.png'/>
+        <img src='${WHITEICONS}g.png'/>
         
         <img src='${WHITEICONS}group-users.png'/>
 
