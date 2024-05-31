@@ -1,4 +1,4 @@
-import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI } from "../../Module/ImagePicker.js";
+import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI, UPDATEUSERAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
@@ -122,6 +122,37 @@ export const CREATEPOSTPAGE=()=>{
                     "PostsLocation":sessionStorage.getItem('location'),
                     "PostersImage":data.UserPhoto
                 }
+
+                const USERDATAT={
+                    "UserID":data.UserID,
+                    "UserUploads":++data.UserUploads
+                }
+
+                POSTPACKAGE(UPDATEUSERAPI,'no-cors',()=>{
+
+                    GETPACKAGE(USERSAPI,'cors',(data)=>{
+
+                        FINDER(data,'UserID',localStorage.getItem('User'),(user)=>{
+            
+                            if (user.UserID === localStorage.getItem('User')) {
+                                
+                                JSONIFICATION(user,(data)=>{
+            
+                                    STORE('local','UserData',data);
+            
+                                });
+                            
+                            }else{
+            
+                                console.log('not a match')
+            
+                            };
+            
+                        });
+            
+                    });
+                    
+                })
 
                 POSTPACKAGE(CREATEPOTSAPI,'no-cors',POSTEDDATA,(info)=>{
                     
