@@ -83,16 +83,17 @@
     position: absolute;
     font-size: 16px;
     top: auto; 
-    width: 95%;
-    height:90px ;
+    width: 90%;
+    height:80px ;
     left: 2%;
-    bottom: 4%; 
+    bottom: 5%; 
     right: 1%;
     margin-top: 0.5rem; 
     background: transparent;
-    border: none;
+    border: 1px solid #cdcdcd05;
     display: inline-flex;   
     padding: 2%;
+    border-radius: 5px;
 }
 
 .FloatPost{
