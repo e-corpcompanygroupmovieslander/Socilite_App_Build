@@ -59,9 +59,11 @@ export const FRIENDSPAGE=()=>{
 
                     EVENT(CountryDivHolder,'click',()=>{
 
+                        let FRIENDSNUMBER;
+
                         JSONLENGTH(element.UserFriends,(Friends)=>{
 
-                            STORE('','Friends',Friends);
+                            FRIENDSNUMBER=Friends;
                 
                         });
 
@@ -89,7 +91,7 @@ export const FRIENDSPAGE=()=>{
 
                                         <img src='${WHITEICONS}group-users.png'/>
 
-                                        <h1 class='FriendsNumber'>${sessionStorage.getItem('Friends')}</h1>
+                                        <h1 class='FriendsNumber'>${FRIENDSNUMBER||0}</h1>
                                     
                                     </div>
 
@@ -232,6 +234,8 @@ export const FRIENDSPAGE=()=>{
                         CLICKED('.closeLocation',()=>{
 
                             STYLED(LocationDiv,'display','none');
+
+                            DELETESTORAGE('','Friends');
                 
                         });
 
