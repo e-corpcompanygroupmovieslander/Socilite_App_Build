@@ -51,7 +51,9 @@ export const FRIENDSPAGE=()=>{
         
                         <img src='${element.UserPhoto||WHITEICONS+'user.png'}' class='PosterImage'/>
 
-                        <h1 class='PosterName' >${element.UserName}</h1>
+                        <h1 class='PosterNamee' >${element.UserName}</h1>
+
+                        <img class='more' src='${WHITEICONS}back.png'/>
 
                     `);
 
