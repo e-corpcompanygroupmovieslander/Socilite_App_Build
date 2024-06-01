@@ -9,14 +9,14 @@ export const EDITUSERPAGE=()=>{
 
             <img id='location' class='Settings' src='${WHITEICONS}location.png'/>
 
-            <img class='Settings' src='${WHITEICONS}upload.png'/>
+            <img id='Upload' class='Settings' src='${WHITEICONS}upload.png'/>
 
         `,
         `
                 
-            <textarea placeholder='About Me' ></textarea>
+            <textarea class='AboutMe' placeholder='About Me' ></textarea>
 
-            <input type='tel' max-length='10' placeholder='My Contact' />
+            <input class='Telephone' type='tel' max-length='10' placeholder='Enter Contact With Country Code First' />
 
             <div class='LocationDiv'>
 
@@ -108,6 +108,91 @@ export const EDITUSERPAGE=()=>{
             STYLED(LocationDiv,'display','none');
 
         });
+
+    })
+
+    const AboutMe=document.querySelector('.AboutMe');
+
+    EVENT(AboutMe,'input',()=>{
+
+        STORE('','UserDescription',AboutMe.value);
+        
+    })
+
+    const Telephone=document.querySelector('.Telephone');
+
+    EVENT(Telephone,'input',()=>{
+
+        STORE('','UserTelephone',Telephone.value);
+        
+    })
+
+    CLICKED('#Upload',()=>{
+
+        const Upload=document.querySelector('#Upload');
+
+        if (sessionStorage.getItem('UserTelephone')||sessionStorage.getItem('UserDescription')) {
+
+            DEJSON('local','UserData',(data)=>{
+
+                const USERS={
+                    "UserID":localStorage.getItem('User'),
+                    "UserTelephone":sessionStorage.getItem('UserTelephone')||data.UserTelephone,
+                    "UserDescription":sessionStorage.getItem('UserDescription')||data.UserDescription,
+                }
+    
+                STYLED(Upload,'padding','1%');
+                STYLED(Upload,'border-radius','50px');
+
+                colorChange(Upload);
+
+                POSTPACKAGE(UPDATEUSERAPI,'no-cors',USERS,(data)=>{
+    
+                    GETPACKAGE(USERSAPI,'cors',(data)=>{
+    
+                        FINDER(data,'UserID',localStorage.getItem('User'),(user)=>{
+            
+                            if (user.UserID === localStorage.getItem('User')) {
+                                
+                                JSONIFICATION(user,(data)=>{
+            
+                                    STORE('local','UserData',data);
+    
+                                    USERACCOUNTPAGE();
+            
+                                });
+                            
+                            }else{
+            
+                                console.log('not a match')
+            
+                            };
+            
+                        });
+            
+                    });
+    
+                }) ;  
+
+            });
+
+        }else{
+
+            VIBRATION(500);
+
+            STYLED(AboutMe,'border','1px solid red');
+            STYLED(Telephone,'border-bottom','1px solid red');
+
+            setTimeout(() => {
+
+                STYLED(AboutMe,'border','1px solid #cdcdcd20');
+                STYLED(Telephone,'border-bottom','1px solid #cdcdcd20');
+                
+            }, 2000);
+
+
+        }
+
 
     })
 

@@ -71,11 +71,7 @@ export const USERACCOUNTPAGE=()=>{
                 
                 </div>
 
-                <p class='FriendsAbout'>
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit earum nostrum reprehenderit quia sequi nemo tempore dignissimos rem blanditiis beatae, incidunt reiciendis temporibus, ut ad dicta dolore sapiente tempora?
-
-                </p>
+                <p class='FriendsAbout'>${data.UserDescription}</p>
 
                 <div class='ChatOptions'>
 
