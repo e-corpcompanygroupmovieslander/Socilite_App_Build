@@ -49,6 +49,11 @@ export const MESSAGEPAGE = (element) => {
                 }
                 console.log(chats);
             });
+            // Snap to last message
+            const lastMessage = MessagesDiv.lastElementChild;
+            if (lastMessage) {
+                lastMessage.scrollIntoView();
+            }
         });
     
         
@@ -103,6 +108,11 @@ export const MESSAGEPAGE = (element) => {
                         }
                         console.log(chats);
                     });
+                    // Snap to last message
+                    const lastMessage = MessagesDiv.lastElementChild;
+                    if (lastMessage) {
+                        lastMessage.scrollIntoView();
+                    }
                 });
 
                 ChatMessage.value = '';
