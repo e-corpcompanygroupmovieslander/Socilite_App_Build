@@ -92,7 +92,7 @@ export const EDITUSERPAGE=()=>{
             
                                     STORE('local','UserData',data);
 
-                                    STYLED(LocationDiv,'display','none');
+                                    USERACCOUNTPAGE();
             
                                 });
                             
