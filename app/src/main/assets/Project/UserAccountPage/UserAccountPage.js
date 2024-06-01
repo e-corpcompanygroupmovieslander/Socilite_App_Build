@@ -1,5 +1,6 @@
 import { HOMEPAGE } from "../HomePage/HomePage.js"
 import { EDITUSERPAGE } from "./EditProfilePage.js";
+import { PROFILEUPFATEPAGE } from "./ProfilePhotoPage.js";
 
 export const USERACCOUNTPAGE=()=>{
 
@@ -27,7 +28,7 @@ export const USERACCOUNTPAGE=()=>{
 
             `,
             `
-                <img class='UserProfilePhoto' src='${data.UserPhoto||BLACKICON+'image.png'}'/>
+                <img class='UserProfilePhoto' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
                         
                 <div class='FriendsDetails'>
 
@@ -93,6 +94,8 @@ export const USERACCOUNTPAGE=()=>{
         const UserProfilePhoto=document.querySelector('.UserProfilePhoto');
 
         colorChange(UserProfilePhoto);
+
+        CLICKED('.UserProfilePhoto',()=>{PROFILEUPFATEPAGE()})
 
         DECLARATION('.FriendPostsDiv',(ELEMENT)=>{
 
