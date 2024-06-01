@@ -1,6 +1,7 @@
 import { CREATEACCOUNTAPI, USERSAPI } from "../../Module/ImagePicker.js";
 import { AUTOLOGINPAGE } from "../AutoDownloadPage/AutoLoginPage.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
+import { PROFILEPHOTO } from "./CreateProfilePhoto.js";
 
 export const EMAILVERIFICATION=()=>{
 
@@ -67,7 +68,7 @@ export const EMAILVERIFICATION=()=>{
 
                             STORE('local','User',data.UserID);
 
-                            HOMEPAGE();
+                            PROFILEPHOTO();
 
                         })
  

@@ -17,9 +17,13 @@ export const AUTOLOGINPAGE=()=>{
         
         EMAILVERIFICATION();
 
+        return;
+
     } else {
         
         LOGINPAGE();
+
+        return;
 
     }
 
