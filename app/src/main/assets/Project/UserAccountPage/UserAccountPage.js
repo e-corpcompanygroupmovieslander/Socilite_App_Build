@@ -1,4 +1,5 @@
 import { HOMEPAGE } from "../HomePage/HomePage.js"
+import { EDITUSERPAGE } from "./EditProfilePage.js";
 
 export const USERACCOUNTPAGE=()=>{
 
@@ -6,11 +7,15 @@ export const USERACCOUNTPAGE=()=>{
 
         let FRIENDSNUMBER;
 
-        JSONLENGTH(data.UserFriends,(Friends)=>{
+        if (data.UserFriends) {
 
-            FRIENDSNUMBER=Friends;
+            JSONLENGTH(data.UserFriends,(Friends)=>{
 
-        });
+                FRIENDSNUMBER=Friends;
+    
+            });
+            
+        }
 
         BACKHEADERWIDGET(()=>{HOMEPAGE()},
 
@@ -124,6 +129,8 @@ export const USERACCOUNTPAGE=()=>{
             });
 
         });
+
+        CLICKED('#Disconnect',()=>{EDITUSERPAGE()});
 
     });
 
