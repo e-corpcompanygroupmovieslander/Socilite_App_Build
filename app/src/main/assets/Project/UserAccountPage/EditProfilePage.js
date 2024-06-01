@@ -1,4 +1,5 @@
 import { UPDATEUSERAPI, USERSAPI } from "../../Module/ImagePicker.js";
+import { LOGINPAGE } from "../LoginPage/LoginPage.js";
 import { USERACCOUNTPAGE } from "./UserAccountPage.js";
 
 export const EDITUSERPAGE=()=>{
@@ -19,6 +20,14 @@ export const EDITUSERPAGE=()=>{
             <textarea class='AboutMe' placeholder='About Me' ></textarea>
 
             <input class='Telephone' type='tel' max-length='10' placeholder='Enter Contact With Country Code First' />
+
+            <input class='Hobbies' type='text' placeholder='Enter Hobbies' />
+            
+            <input class='UserRealName' type='text'  placeholder='Enter Real Names' />
+
+            <input class='UserCurrentCity' type='text'  placeholder='Enter Current City' />
+
+            <input class='UserOccupation' type='text'  placeholder='Enter Occupation' />
 
             <div class='LocationDiv'>
 
@@ -119,7 +128,7 @@ export const EDITUSERPAGE=()=>{
 
         STORE('','UserDescription',AboutMe.value);
         
-    })
+    });
 
     const Telephone=document.querySelector('.Telephone');
 
@@ -127,13 +136,45 @@ export const EDITUSERPAGE=()=>{
 
         STORE('','UserTelephone',Telephone.value);
         
-    })
+    });
+
+    const Hobbies=document.querySelector('.Hobbies');
+
+    EVENT(Hobbies,'input',()=>{
+
+        STORE('','Hobbies',Hobbies.value);
+        
+    });
+
+    const UserRealName=document.querySelector('.UserRealName');
+
+    EVENT(UserRealName,'input',()=>{
+
+        STORE('','UserRealName',UserRealName.value);
+        
+    });
+
+    const UserOccupation=document.querySelector('.UserOccupation');
+
+    EVENT(UserOccupation,'input',()=>{
+
+        STORE('','UserOccupation',UserOccupation.value);
+        
+    });
+
+    const UserCurrentCity=document.querySelector('.UserCurrentCity');
+
+    EVENT(UserCurrentCity,'input',()=>{
+
+        STORE('','UserCurrentCity',UserCurrentCity.value);
+        
+    });
 
     CLICKED('#Upload',()=>{
 
         const Upload=document.querySelector('#Upload');
 
-        if (sessionStorage.getItem('UserTelephone')||sessionStorage.getItem('UserDescription')) {
+        if (sessionStorage.getItem('UserTelephone')||sessionStorage.getItem('UserDescription')||sessionStorage.getItem('Hobbies')||sessionStorage.getItem('UserOccupation')||sessionStorage.getItem('UserCurrentCity')||sessionStorage.getItem('UserRealName')) {
 
             DEJSON('local','UserData',(data)=>{
 
@@ -141,6 +182,10 @@ export const EDITUSERPAGE=()=>{
                     "UserID":localStorage.getItem('User'),
                     "UserTelephone":sessionStorage.getItem('UserTelephone')||data.UserTelephone,
                     "UserDescription":sessionStorage.getItem('UserDescription')||data.UserDescription,
+                    "Hobbies":sessionStorage.getItem('Hobbies')||data.Hobbies,
+                    "UserOccupation":sessionStorage.getItem('UserOccupation')||data.UserOccupation,
+                    "UserCurrentCity":sessionStorage.getItem('UserCurrentCity')||data.UserCurrentCity,
+                    "UserRealName":sessionStorage.getItem('UserRealName')||data.UserRealName
                 }
     
                 STYLED(Upload,'padding','1%');
@@ -166,7 +211,9 @@ export const EDITUSERPAGE=()=>{
                             
                             }else{
             
-                                console.log('not a match')
+                                localStorage.clear();
+
+                                LOGINPAGE();
             
                             };
             

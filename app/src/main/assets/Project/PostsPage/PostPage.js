@@ -1,5 +1,6 @@
 import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI, UPDATEUSERAPI, USERSAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
+import { LOGINPAGE } from "../LoginPage/LoginPage.js";
 import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
 export const CREATEPOSTPAGE=()=>{
@@ -152,7 +153,9 @@ export const CREATEPOSTPAGE=()=>{
                             
                             }else{
             
-                                console.log('not a match')
+                                localStorage.clear();
+
+                                LOGINPAGE();
             
                             };
             

@@ -1,4 +1,5 @@
 import { USERSAPI } from "../../Module/ImagePicker.js"
+import { LOGINPAGE } from "../LoginPage/LoginPage.js";
 
 export const AUTODOWNLOADUSERDATA=()=>{
 
@@ -18,7 +19,9 @@ export const AUTODOWNLOADUSERDATA=()=>{
                 
                 }else{
 
-                    console.log('not a match')
+                    localStorage.clear();
+
+                    LOGINPAGE();
 
                 };
 

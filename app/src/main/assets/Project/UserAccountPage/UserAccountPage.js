@@ -5,6 +5,8 @@ export const USERACCOUNTPAGE=()=>{
 
     DEJSON('local','UserData',(data)=>{
 
+        console.log(data);
+
         let FRIENDSNUMBER;
 
         if (data.UserFriends) {
