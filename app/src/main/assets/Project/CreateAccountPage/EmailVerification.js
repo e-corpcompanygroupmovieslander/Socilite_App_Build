@@ -52,8 +52,8 @@ export const EMAILVERIFICATION=()=>{
 
             GETPACKAGE(USERSAPI,'cors',(info)=>{
 
-                FINDER(info,'UserEmail',data.UserEmail.value,(user)=>{
-                    if (user.UserEmail === data.UserEmail.value ) {
+                FINDER(info,'UserEmail',data.UserEmail,(user)=>{
+                    if (user.UserEmail === data.UserEmail ) {
 
                         MESSAGE('USer Email Taken ');
 
