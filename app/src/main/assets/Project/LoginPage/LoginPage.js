@@ -1,4 +1,5 @@
 import { USERSAPI } from "../../Module/ImagePicker.js";
+import { CREATEACCOUNTPAGE } from "../CreateAccountPage/CreateAccountPage.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 
 export const LOGINPAGE=()=>{
@@ -102,6 +103,8 @@ export const LOGINPAGE=()=>{
         }
         
 
-    })
+    });
+
+    CLICKED('.blue',()=>{CREATEACCOUNTPAGE()})
 
 }
