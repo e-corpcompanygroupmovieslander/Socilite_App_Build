@@ -3,6 +3,8 @@ import { USERACCOUNTPAGE } from "./UserAccountPage.js";
 
 export const EDITUSERPAGE=()=>{
 
+    sessionStorage.clear();
+
     BACKHEADERWIDGET(()=>{USERACCOUNTPAGE()},
 
         `
