@@ -4,7 +4,7 @@ export const POSTERSIMAGE=(PostHeader,Element)=>{
 
     PosterImage.classList.add('PosterImage');
 
-    PosterImage.src=Element.PostersImage||WHITEICONS+'Profile.png';
+    PosterImage.src=Element.PostersImage||WHITEICONS+'user.png';
 
     ADD(PostHeader,PosterImage);
 
