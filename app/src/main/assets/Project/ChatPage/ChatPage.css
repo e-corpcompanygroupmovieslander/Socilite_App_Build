@@ -1,0 +1,65 @@
+.ChatHoldersOption{
+    top: auto;
+    bottom: 0;
+    height: 50px;
+    background: transparent;
+}
+
+.MessagesDiv{
+    position: absolute;
+    height: 90%;
+    background: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: 1px solid #cdcdcd20;
+}
+
+#MessagingDiv{
+    background: transparent;
+}
+
+.SendMessage{
+    width: 30%;
+}
+
+.ChattingOptions{
+    background: #121212;
+    top: auto;
+    bottom: 0;
+    height: 57px;
+    display: inline-flex;
+}
+
+.ChatMessage{
+    width: 70%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    margin-right: auto;
+    left: 0;
+}
+
+#SendMessage{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 35px;
+    width: 80px;
+    margin-right: 0.5rem;
+}
+
+#MessageLoader{
+    
+    margin: 50% 45%;
+
+}
+
+.OwnMessage{
+    color: white;
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+
+.OtherMessage{
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+}

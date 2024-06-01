@@ -30,31 +30,39 @@ export const HOMEPAGE=()=>{
 
             const HomeReload=document.querySelector('.HomeReload');
 
-            STYLED(HomeReload,'padding','2% ');
+            if (localStorage.getItem('NetWork')) {
 
-            STYLED(HomeReload,'border-radius','20px ');
+                STYLED(HomeReload,'padding','2%');
 
-            colorChange(HomeReload);
+                STYLED(HomeReload,'border-radius','20px');
 
-            GETPACKAGE(POSTSAPI,'cors',(result)=>{
+                colorChange(HomeReload);
 
-                const USERDATA={
-                    "Name":"Posts",
-                    "Posts":result
-                }
-        
-                if (localStorage.getItem('User')) {
-        
-                    UPDATEINDEXED('Socilite','Posts',USERDATA);
+                GETPACKAGE(POSTSAPI,'cors',(result)=>{
 
-                    HOMEPAGE();
-                    
-                } else {
-                    
-                    STOREINDEXED('Socilite','Posts',USERDATA);
-                }
-        
-            });
+                    const USERDATA={
+                        "Name":"Posts",
+                        "Posts":result
+                    };
+            
+                    if (localStorage.getItem('User')) {
+            
+                        UPDATEINDEXED('Socilite','Posts',USERDATA);
+    
+                        HOMEPAGE();
+                        
+                    } else {
+                        
+                        STOREINDEXED('Socilite','Posts',USERDATA);
+                    };
+            
+                });
+                
+            } else {
+
+                console.log('Using Back Up');
+                
+            };
 
         });
 

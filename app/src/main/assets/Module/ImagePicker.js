@@ -11,3 +11,8 @@ export const EMAILUSERSAPI='https://script.google.com/macros/s/AKfycbxL-n5l4qm6D
 export const POSTSAPI='https://script.googleusercontent.com/macros/echo?user_content_key=FQNfLrwo4KLbhJwgRyV5WgplrTPYnvypsulpy8RTHEoBEqsXeDXDc_GSqx9-m0S0EL2cZQm6sCtK_ErkTFxU1eKZZYlvUsuIm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnN5E8nzERE7Rokp5vqLQbpzvAKkDeZwdhp9bkBeDBjFwaQBxo41YvVgdWxHALyqrQiWjxQGEP7sXsul-uvkWF_hauZ7RxXhPwg&lib=MB4AYjQHul2eLQ1QQM8QVuXLBN-74XPvf';
 export const UPDATEPOSTSAPI='https://script.google.com/macros/s/AKfycbxRIRvzpgPFHp3AuOO9tc4fyWHbhs9bcVpiwP1DJNLiDVCIW43dK0VVMGbePAwLQQEF/exec';
 export const CREATEPOTSAPI='https://script.google.com/macros/s/AKfycbyQ1oZHumkA9YRv7JeBhps4DtsU78YMdXFj_lXEPsQHDY9wE20Bf2ejysdllxWlhY07/exec';
+
+//CHAT API
+export const GETMESSAGES='https://script.google.com/macros/s/AKfycbwwv4a6njPiNeqwMROxomc2xLkLDVIX4cK_WCUx97mcYT7Mj-aRMV7BXYAMi7UaynVk4g/exec';
+export const CREATEMESSAGE='https://script.google.com/macros/s/AKfycbxs9AcUI02gZQNJot2wHjgt6jmbxctGBtu1g08K8bygNqkt7yqyJcwGsfZ-MAzmL9Jemw/exec';
+export const UPDATEMESSAGE='https://script.google.com/macros/s/AKfycbxlp0Jz7K8kWwFDAUKEy4bzmo1CG_1Z0jo_hu3Vn8Cs-kZnLoUrSk3S5ZDeg4ew7gCv4Q/exec';
