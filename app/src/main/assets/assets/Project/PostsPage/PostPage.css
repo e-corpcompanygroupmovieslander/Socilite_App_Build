@@ -1,0 +1,65 @@
+.SelectedImage{
+    width: 95%;
+    left: 2%;
+    height: auto;
+    margin-top: 1rem;
+    margin-bottom: 2%;
+    border: 1px solid #cdcdcd50;
+    border-radius: 5px;
+}
+
+.LocationDiv{
+    position: fixed;
+    width: 100%;
+    height: auto;
+    background: #121212;
+    left: 0;
+    top: 30px;
+    bottom: 0;
+    overflow: hidden;
+    display: none;
+}
+
+.ChooseLocation{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: left;
+    font-size: 16px;
+    margin-left: 1rem;
+}
+
+.closeLocation{
+    margin-right: 1rem;
+    width: 20px;
+}
+
+.CountriesDiv{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    top: 52px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.CountryDiv{
+    position: relative;
+    width: 95%;
+    height: 50px;
+    left: 2%;
+    margin: 1% 1%;
+    display: inline-flex;
+    border-radius: 10px;
+}
+
+.CountryName{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    font-size:16px;
+}
+
+.LocationIcon{
+    margin-right: 1rem;
+}
