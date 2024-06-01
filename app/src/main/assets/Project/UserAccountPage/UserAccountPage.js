@@ -105,7 +105,7 @@ export const USERACCOUNTPAGE=()=>{
 
                 REDUX(data,(Element)=>{
 
-                    REDUX(Element.Posts,(element)=>{
+                    REDUX(Element.Posts.reverse(),(element)=>{
 
                         if (element.Poster === localStorage.getItem('User') ) {
 
