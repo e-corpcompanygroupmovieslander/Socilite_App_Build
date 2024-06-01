@@ -57,7 +57,7 @@ export const PROFILEUPFATEPAGE=()=>{
                         "PosterName":data.UserName,
                         "UserID":Date.now(),
                         "PostsLocation":data.UserLocation,
-                        "PostersImage":data.UserPhoto
+                        "PostersImage":IMAGES
                     }
     
                     const USERDATA={
