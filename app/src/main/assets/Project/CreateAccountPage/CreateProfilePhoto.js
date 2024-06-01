@@ -1,7 +1,6 @@
 import { CREATEPOTSAPI, IMAGEPICKER, POSTSAPI, UPDATEUSERAPI, USERSAPI } from "../../Module/ImagePicker.js";
 import { HOMEPAGE } from "../HomePage/HomePage.js";
 import { LOGINPAGE } from "../LoginPage/LoginPage.js";
-import { USERACCOUNTPAGE } from "../UserAccountPage/UserAccountPage.js";
 
 export const PROFILEPHOTO=()=>{
 
@@ -9,10 +8,10 @@ export const PROFILEPHOTO=()=>{
 
     DEJSON('local','UserData',(data)=>{
 
-        BACKHEADERWIDGET(()=>{USERACCOUNTPAGE()},
+        HEADERWIDGET(
             `
                 
-                <img id='createUserPost' class='Settings' src='${WHITEICONS}upload.png'/>
+                <img id='SkipUpload' class='Settings' src='${WHITEICONS}upload.png'/>
 
             `,
 
@@ -23,7 +22,7 @@ export const PROFILEPHOTO=()=>{
 
                 <img class='SelectedImage' src='${data.UserPhoto||BLACKICONS+'image.png'}'/>
 
-                <button class='teal'>Skip</button>
+                <button class='forestgreen'>Upload</button>
 
             `,'PostCreationDIv'
 
@@ -39,11 +38,11 @@ export const PROFILEPHOTO=()=>{
 
         });
 
-        CLICKED('#createUserPost',()=>{
+        CLICKED('.forestgreen',()=>{
 
             const SelectedImage=document.querySelector('.SelectedImage');
     
-            const createUserPost=document.querySelector('#createUserPost');
+            const createUserPost=document.querySelector('.forestgreen');
     
             if (sessionStorage.getItem('SelectedImage')) {
     
@@ -138,7 +137,7 @@ export const PROFILEPHOTO=()=>{
     
         });
 
-        CLICKED('.teal',()=>{
+        CLICKED('#SkipUpload',()=>{
 
             HOMEPAGE()
             
