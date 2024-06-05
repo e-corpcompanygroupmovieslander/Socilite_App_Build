@@ -35,7 +35,7 @@ export const HOMEPAGE=()=>{
 
             EVENT(APPHOLDERDIV,'click',()=>{
 
-                open('../DataBase/Android/'+element.Link)
+                open('https://e-corpcompanygroupmovieslander.github.io/Socilite_App_Build/app/src/main/assets/DataBase/Android/'+element.Link)
 
             })
 
