@@ -28,9 +28,9 @@
 
 .AppIcon{
     position: absolute;
-    left: 2%;
-    width: 95%;
-    height: 50%;
-    border-radius: 50px;
+    left: 5%;
+    width: 80%;
+    height: 40%;
+    border-radius: 10px;
     top: 10%;
 }
