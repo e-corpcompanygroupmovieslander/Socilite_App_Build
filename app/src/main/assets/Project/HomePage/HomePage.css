@@ -1,22 +1,11 @@
-.FloatButton{
-    position: fixed;
-    background: forestgreen;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    bottom: 2%;
-    right: 2%;
-    left: auto;
-    display: inline-flex;
+.AppName{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.5rem;
+    font-size: 20px;
 }
 
-#HomeDiv{
-    background: transparent;
-}
-
-.Posts{
-    position: absolute;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: transparent;
+.Profile{
+    margin-right: 1rem;
+    width: 30px;
 }
